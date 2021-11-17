@@ -123,9 +123,10 @@ footer
 {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
-    padding-top: 3em;
-    padding-right: 10em;
+    margin-top: auto;
+    margin-bottom: 2em;
+    margin-right: 4em;
+    
 }
 
 .btn
