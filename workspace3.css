@@ -1,0 +1,135 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav
+{
+    display: flex;
+    gap: 2em;
+    padding: 1em 1em 1em 3em;
+    background-color: rgb(26, 26, 252);
+    color: white;
+}
+
+#header-text
+{
+    font-size: 30px;
+    margin: 4px 4px;
+}
+
+header
+{
+    margin: .5em;
+    padding-left: 5em;
+    display: flex;
+    align-items: center;
+    color: rgb(26, 26, 252);
+}
+
+body
+{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer
+{
+    margin-top: auto;
+    display: flex;
+    gap: 2em;
+    padding: 1em 1em 1em 3em;
+    background-color: rgb(26, 26, 252);
+    color: white;
+}
+
+#num-line
+{
+    border-top: 1px solid red;
+    position: relative;
+    top: 2.56em;
+    width: 700px;
+
+}
+
+#num-line-div
+{
+    display: flex;
+    justify-content: center;
+}
+
+.number-container
+{
+    display: flex;
+    justify-content: center;
+    margin-top:1.5em;
+
+    gap: 10em;
+    z-index:1;
+
+}
+
+.circle 
+{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    background: rgb(26, 26, 252);
+    border: 1px solid rgb(26, 26, 252);
+    color: white;
+    text-align: center;
+    font: 20px Arial, sans-serif;
+}
+
+#cc
+{
+    background: rgb(33, 129, 255);
+    border: 1px solid cyan;
+}
+
+#download-label
+{
+    color: rgb(26, 26, 252);
+    font-size: 2em;
+}
+
+.input-label
+{
+    width: 20em;
+    height: 2em;
+    background: rgb(26, 26, 252);
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 2em;
+}
+
+#main-container
+{
+    padding-top: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+#feed-container
+{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    margin-bottom: 2em;
+    margin-right: 4em;
+    
+}
+
+.btn
+{
+    width: 10em;
+}
