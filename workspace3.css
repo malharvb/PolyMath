@@ -92,32 +92,15 @@ footer
     border: 1px solid cyan;
 }
 
-.container
+#download-label
 {
-    display: flex;
-    align-items: center;
-    gap: 3em;
+    color: rgb(26, 26, 252);
+    font-size: 2em;
 }
 
-#input-container
+.input-label
 {
-    display: flex;
-    flex-direction: column;
-    padding: 3em;
-    gap: 4em;
-    width: 26em;
-}
-
-.input-box
-{
-    width: 10em;
-    height: 2em;
-    border: 1px solid rgb(26, 26, 252);
-}
-
-.input-label, #vis-label, #result-self
-{
-    width: 5em;
+    width: 20em;
     height: 2em;
     background: rgb(26, 26, 252);
     color: white;
@@ -126,50 +109,26 @@ footer
     line-height: 2em;
 }
 
-#result-self
-{
-    width: 15em;
-    align-self: center;
-}
-
 #main-container
 {
-    display: flex;
-    gap: 10em;
-    justify-content: center;
-    
-}
-
-#vis-container
-{
+    padding-top: 6em;
     display: flex;
     flex-direction: column;
-    gap:1em;
-    padding: 2em;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
 }
 
-#vis-label
-{
-    width: 7em;
-}
-
-#vis-display
-{
-    min-height: 21em;
-    min-width: 30em;
-    border: 1px solid rgb(26, 26, 252);
-}
-
-#step-container
-{
-    padding: 3em 12em;
-
-}
-
-#download-container
+#feed-container
 {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    padding: 0 2em 1em 0;
+    margin-top: auto;
+    padding-right: 10em;
+}
+
+.btn
+{
+    width: 10em;
 }
