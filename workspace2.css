@@ -51,16 +51,23 @@ footer
     border-top: 1px solid red;
     position: relative;
     top: 2.56em;
-    width: 70%;
-    margin-left: 7em;
-    margin-right: auto;
+    width: 700px;
+
+}
+
+#num-line-div
+{
+    display: flex;
+    justify-content: center;
 }
 
 .number-container
 {
     display: flex;
-    margin: 1.5em 0 0 7em;
-    gap: 20em;
+    justify-content: center;
+    margin-top:1.5em;
+
+    gap: 10em;
     z-index:1;
 
 }
@@ -128,6 +135,7 @@ footer
 {
     display: flex;
     gap: 10em;
+    justify-content: center;
     
 }
 
@@ -153,5 +161,5 @@ footer
 
 #step-container
 {
-    padding: 3em 10em;
+    padding: 3em 12em;
 }
