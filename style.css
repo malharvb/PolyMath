@@ -47,8 +47,12 @@ footer
     color: white;
 }
 
-#learnpoly
+#learnpoly,#home,#settings,#feedback,.link
 {
     color: white;
+    text-decoration: none;
+}
+#learnpoly:hover,#home:hover,#settings:hover,#feedback:hover,.link:hover{
+    color: chartreuse;
     text-decoration: none;
 }

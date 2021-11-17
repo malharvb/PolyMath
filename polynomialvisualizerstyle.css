@@ -1,0 +1,221 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.nav
+{
+    width: 100%;
+    display: flex;
+    gap: 2em;
+    padding: 1em 1em 1em 3em;
+    background-color: rgb(26, 26, 252);
+    color: white;
+}
+
+ a{
+    color: azure;
+    text-decoration: none;
+}
+
+ a:link{
+    color: azure;
+    text-decoration: none;
+}
+ a:hover{
+    color: chartreuse;
+    text-decoration: none;
+}
+
+#header-text
+{
+    font-size: 30px;
+    margin: 4px 4px;
+}
+
+header
+{
+    margin: .5em;
+    padding-left: 5em;
+    display: flex;
+    align-items: center;
+    color: rgb(26, 26, 252);
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+hr{
+    background-color: rgb(26, 26, 252);
+}
+
+main{
+    width: 100%;
+   height: fit-content;
+    padding: 50px;
+    border: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: azure;
+
+    line-height: 80px;
+    
+   
+   
+}
+.upper{
+    display: flex;
+}
+.main1{
+    flex: 1;
+    width: 50%;
+    height: 40vh;
+    padding: 10px;
+    border-right: 1px solid blue;
+}
+.main2{
+    width: 50%;
+    height: 40vh;
+    padding: 10px;
+    text-align: center;
+}
+.main1 li{
+    list-style: none;
+    
+}
+span .inputcolor{
+    background-color: rgb(26, 26, 252);
+}
+.main2 li{
+    list-style: none;
+    text-align: bottom;
+    padding-top: 50px;
+}
+
+.main3{
+    width: 100%;
+    height: 20vh;
+    padding: 10px;
+    color: blue;
+}
+.main3 li{
+    list-style:square;
+    line-height: 40px;
+}
+main p{
+    color:blue;
+    
+}
+
+main li{
+    color:blue;
+    text-decoration: none;
+    text-indent: 10px;
+}
+
+span {
+    font-style: italic;
+    font-size: xx-small;
+    font-weight: lighter;
+    padding: 5px;
+    color: blue;
+}
+
+button{
+    background-color: rgb(26, 26, 252);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    
+}
+
+.buttonn{
+    margin-left: 15%;
+}
+
+
+
+.inputcolor{
+    background-color: rgb(26, 26, 252);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: azure;
+    font-size: 18px;
+    font-style: normal;
+}
+
+footer
+{
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    gap: 2em;
+    padding: 1em 1em 1em 3em;
+    background-color: rgb(26, 26, 252);
+    color: white;
+} 
+
+.name{
+    color: rgb(26, 26, 252);
+    font-size: medium;
+    font-weight: lighter;
+}
+
+.mainform{
+    
+    line-height: 50px;
+   
+}
+
+#num-line
+{
+    border-top: 1px solid red;
+    position: relative;
+    top: 2.56em;
+    width: 700px;
+    z-index: 0;
+
+}
+
+#num-line-div
+{
+    display: flex;
+    justify-content: center;
+}
+
+.number-container
+{
+    display: flex;
+    justify-content: center;
+    margin-top:1.5em;
+    gap: 10em;
+    z-index: 1;
+
+}
+
+.circle 
+{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    background: rgb(26, 26, 252);
+    border: 1px solid rgb(26, 26, 252);
+    color: white;
+    text-align: center;
+    font: 20px Arial, sans-serif;
+}
+
+#cc
+{
+    background: rgb(33, 129, 255);
+    border: 1px solid cyan;
+}
+

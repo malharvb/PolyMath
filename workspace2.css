@@ -173,3 +173,13 @@ footer
     align-items: flex-end;
     padding: 0 2em 1em 0;
 }
+
+#learnpoly,#home,#settings,#feedback,#download,.link
+{
+    color: white;
+    text-decoration: none;
+}
+#learnpoly:hover,#home:hover,#settings:hover,#feedback:hover,#download:hover,.link:hover{
+    color: chartreuse;
+    text-decoration: none;
+}

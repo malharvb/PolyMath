@@ -4,32 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="polynomialvisualizerstyle.css">
     <title>Polynomial Visualizer</title>
 </head>
 <body>
     <header> <img src="logo pv.png" alt="logo"> <span id="header-text">Polynomial Visualizer</span></header>
     <div class="nav">
-        <div>Home</div>
+        <div><a href="index.html" id="home">Home</a></div>
         <div><a href="learnpoly.html" id="learnpoly">Learn Polynomial</a></div>
-        <div>Settings</div>
-        <div>Feedback</div>
+        <div><a href="" id="settings">Settings</a></div>
+        <div><a href="feedback.html" id="feedback">Feedback</a></div>
     </div>
+    <div id="num-line-div"><hr id="num-line"></div>
+    <div class="number-container">
+        <div class="circle" id="cc">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+        <div class="circle">4</div>
+    </div>
+   
+    <main>
+        <div class="upper">
+            <div class="main1">
+                <li>
+                    <span class="inputcolor">Input 1: </span> <input type="text" name="input-1" id="input-1" required > <span >polynomial 1 valid!</span></li> 
 
-    <a href="workspace2.html">WorkSpace 2 Demo Link</a>
+                <li class="buttonn"> 
+                    <button>+</button>
+                    <button>-</button> 
+                    <button>*</button> 
+                </li>
 
-    <a href="workspace3.html">WorkSpace 3 Demo Link</a>
+                <li>
+                    <span class="inputcolor">Input 2: </span> <input type="text" name="input-2" id="input-2" required > <span>polynomial 2 valid!</span>
+                </li> 
+            </div>  
+                
+            <div class="main2">
+                <li> 
+                    <button><a href="workspace1.html">Let's Compute</a></button>
+                </li>
+            
+            </div>  
 
-    
+        </div>
+
+     
+    </main>
 
     <footer>
-        <div>About Us</div>
-        <div>Contact Us</div>
+
+        <a href="">About Us</a>
+        <a href="mailto:priotosh.mondal777@gmail.com">Contact us</a>
+       
     </footer>
+    
 </body>
 </html>
