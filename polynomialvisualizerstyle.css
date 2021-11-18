@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-size: 20px;
+    font-family: 'Roboto', sans-serif;;
 }
 
 .nav
@@ -54,10 +55,10 @@ hr{
 
 main{
     width: 100%;
-   height: fit-content;
+    height: fit-content;
     padding: 50px;
     border: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: azure;
 
     line-height: 80px;
@@ -116,8 +117,8 @@ main li{
 }
 
 span {
-    font-style: italic;
-    font-size: xx-small;
+    
+    font-size: small;
     font-weight: lighter;
     padding: 5px;
     color: blue;
@@ -150,7 +151,7 @@ button:hover
 
 .inputcolor{
     background-color: rgb(26, 26, 252);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: azure;
     font-size: 18px;
     font-style: normal;
@@ -224,3 +225,7 @@ footer
     border: 1px solid cyan;
 }
 
+span.inputcolor
+{
+    margin-right: 1em;
+}
