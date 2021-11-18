@@ -163,7 +163,7 @@ footer
 #step-container
 {
     padding: 3em 12em;
-
+    color: rgb(26, 26, 252);
 }
 
 #download-container
@@ -187,4 +187,9 @@ footer
 #result-self:hover, .dwn:hover
 {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.dark
+{
+    background-color: #292c35;
 }
