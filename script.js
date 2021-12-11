@@ -1,8 +1,10 @@
 
-let myStorage = window.localStorage
-let body = document.querySelector('body')
+let myStorage = window.localStorage;
+let body = document.querySelector('body');
 //body.classList.remove('dark')
-console.log(myStorage.getItem('dark'))
+console.log(myStorage.getItem('dark'));
+
+
 
 if(myStorage.getItem('dark') == 'true')
 {
@@ -12,3 +14,7 @@ else
 {
     body.classList.remove('dark')
 }
+
+
+
+
