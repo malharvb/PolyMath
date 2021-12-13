@@ -305,3 +305,8 @@ body.dark {
 .fa-calculator{
     color: white;
 }
+
+#resultantPoly
+{
+    color:#ffae42;
+}
