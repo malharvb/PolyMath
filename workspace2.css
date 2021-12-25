@@ -20,6 +20,10 @@
     justify-content: space-evenly;
 }
 
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+
 .nav1{
     justify-content: right;
 }
@@ -150,7 +154,6 @@ footer
 
 #main-container
 {   display: flex;
-    gap: 10em;
 }
 
 #vis-container
