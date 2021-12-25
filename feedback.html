@@ -14,29 +14,35 @@
 
 
 <header> <img src="logo pv.png" alt="logo"> <span id="header-text">Polynomial Visualizer</span></header>
-<div class="nav">
-    <div><a href="index.html" id="home">Home</a></div>
-    <div><a href="learnpoly.html" id="learnpoly">Learn Polynomial</a></div>
-    <div><a href="feedback.html" id="feedback">Feedback</a></div>
-    <span class="button">
+<div>
+    <span class="nav">
+    <span><a href="index.html" id="home">Home</a></span>
+    <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
+    <span><a href="feedback.html" id="feedback">Feedback</a></span>
+    <span class="nav" style="position: relative; bottom: 3px; justify-content: flex-end;"><i class="fas fa-calculator"></i></span>
+    <span class="nav1">
+        <div>
         <input type="checkbox" class="checkbox" id="checkbox">
         <label for="checkbox" class="label">
             <i class="fas fa-moon"></i>
             <i class="fas fa-sun"></i>
             <div class="ball"></div>
         </label>
+    </div>
     </span>
-    <span style=" position: relative; left: 630px; bottom: 1.9px; font-size: 1.33rem;"><i class="fas fa-calculator"></i></span>
+    </span>
+    
 </div>
-<main >
+<main>
     <div class="mainform">
-    <header>Feedback Form</header>
+    <p style="justify-content: left; color: orange; text-decoration: underline;">Feedback Form</p>
 <form action="Feedback" class="form">
     <p>Name: <input type="text" name="name" id="nom"></p>
     <p>Email: <input type="email" name="email" id="email"></p>
-    <p>Enter Suggestion/Feedback : <textarea name="response" id="response"  cols="100"  rows="5" ></textarea></p>
+    <p style=" display: flex; justify-content: bottom;">Enter Suggestion/Feedback:</p>
+    <textarea name="response" id="response"  cols="100"  rows="5" ></textarea>
    
-    <button type="submit">Submit Response</button>
+    <button style="display: flex; justify-content: left;" type="submit">Submit Response</button>
 </form>
 </div>
 </main>

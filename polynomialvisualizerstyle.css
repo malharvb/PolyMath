@@ -16,6 +16,7 @@
     background-color: rgb(26, 26, 252);
     color: white;
     flex: 1;
+    justify-content: space-evenly;
 }
 
 .nav1{
@@ -310,4 +311,8 @@ body.dark {
 
 .fa-calculator{
     color: white;
+}
+
+button[type = "submit"]:hover{
+    color: chartreuse;
 }

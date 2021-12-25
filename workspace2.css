@@ -8,11 +8,20 @@
 
 .nav
 {
+    width: 100%;
     display: flex;
-    gap: 2em;
-    padding: 1em 1em 1em 3em;
+    gap: 3em;
+    padding: 1em 1em 0.2em 3em;
+    flex-direction: row;
     background-color: rgb(26, 26, 252);
     color: white;
+    flex: 1;
+    justify-content: left;
+    justify-content: space-evenly;
+}
+
+.nav1{
+    justify-content: right;
 }
 
 #header-text
@@ -95,7 +104,6 @@ footer
 .container
 {
     display: flex;
-    align-items: center;
     gap: 3em;
 }
 
@@ -106,6 +114,7 @@ footer
     padding: 3em;
     gap: 4em;
     width: 26em;
+    justify-content: right;
 }
 
 .input-box
@@ -133,11 +142,8 @@ footer
 }
 
 #main-container
-{
-    display: flex;
+{   display: flex;
     gap: 10em;
-    justify-content: center;
-    
 }
 
 #vis-container
@@ -154,7 +160,7 @@ footer
 }
 
 #vis-display
-{
+{   display: flex;
     min-height: 21em;
     min-width: 30em;
     border: 1px solid rgb(26, 26, 252);
