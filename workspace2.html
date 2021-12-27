@@ -15,19 +15,24 @@
 </head>
 <body>
     <header> <img src="logo pv.png" alt="logo"> <span id="header-text">Polynomial Visualizer</span></header>
-    <div class="nav">
-        <div><a href="index.html" id="home">Home</a></div>
-        <div><a href="learnpoly.html" id="learnpoly">Learn Polynomial</a></div>
-        <div><a href="feedback.html" id="feedback">Feedback</a></div>
-        <span class="button">
+    <div>
+        <span class="nav">
+        <span><a href="index.html" id="home">Home</a></span>
+        <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
+        <span><a href="feedback.html" id="feedback">Feedback</a></span>
+        <span class="nav" style="position: relative; bottom: 15px; justify-content: flex-end;"><i class="fas fa-calculator"></i></span>
+        <span class="nav1">
+            <div>
             <input type="checkbox" class="checkbox" id="checkbox">
             <label for="checkbox" class="label">
                 <i class="fas fa-moon"></i>
                 <i class="fas fa-sun"></i>
                 <div class="ball"></div>
             </label>
+        </div>
         </span>
-        <span style=" position: relative; left: 630px; bottom: 1.9px; font-size: 1.33rem;"><i class="fas fa-calculator"></i></span>
+        </span>
+        
     </div>
     <div id="num-line-div"><hr id="num-line"></div>
     <div class="number-container">
@@ -54,20 +59,22 @@
             <div id="result-self">
                 <a href="index.html" class="link" >Take Result as Input</a>
             </div>
-            <hr>
             
+        <hr style="width: 93vmax;">
         </div>
+        <div>
         <div id="vis-container">
             <div id="vis-label">Visualization:</div>
             <div id="vis-display"></div>
         </div>
     </div>
+</div>
 
-    <div id="step-container">
-        <div>Steps:</div>
-        <div>Step 1</div>
-        <div>Step 2</div>
-    </div>
+<div class="main3">
+   <p>Stepwise solution: </p>
+    <li>Step 1</li>
+    <li>Step 2</li>
+   </div>
 
     <div id="download-container">
         <div class="input-label dwn"> <a href="workspace3.html" id="download">Download</a></div>

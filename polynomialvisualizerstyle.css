@@ -10,10 +10,17 @@
 {
     width: 100%;
     display: flex;
-    gap: 2em;
+    gap: 4em;
     padding: 1em 1em 1em 3em;
+    flex-direction: row;
     background-color: rgb(26, 26, 252);
     color: white;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+.nav1{
+    justify-content: right;
 }
 
  a{
@@ -304,4 +311,8 @@ body.dark {
 
 .fa-calculator{
     color: white;
+}
+
+button[type = "submit"]:hover{
+    color: chartreuse;
 }
