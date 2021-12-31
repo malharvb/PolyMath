@@ -316,3 +316,8 @@ body.dark {
 button[type = "submit"]:hover{
     color: chartreuse;
 }
+
+.fa-calculator:hover{
+    background-color: orangered;
+    box-shadow: #292c35 1px;
+}
