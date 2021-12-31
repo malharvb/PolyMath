@@ -1,8 +1,11 @@
-.containerC {
-    max-width: 200px;
-    max-height: 200px;
-    margin: 10vh auto 0 auto;
-    margin: -1000px;
+
+
+.disbuttonsC {
+    width: 200px;
+    height: 200px;
+    margin: -100px;
+    z-index: 2;
+    justify-content: center;
 }
 
 #displayC {
@@ -47,15 +50,19 @@
     transition: 0.2s ease-in-out;
 }
 input ~ .disbuttonsC{
-    left: -10000px;
+    left: 10000px;
     transition: all 0.4s ease-in-out;
-    transform: translate(-1000px);
+    transform: translate(100px);
     opacity: 0;
 
 }
 
 input:checked ~ .disbuttonsC{
     transition: all 0.4s ease-in-out;
-    transform: translate(300px);
+    transform: translate(-150px);
     opacity: 100%;
+}
+
+body {
+    overflow-x: hidden;
 }

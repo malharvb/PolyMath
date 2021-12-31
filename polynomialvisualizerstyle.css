@@ -60,7 +60,7 @@ hr{
     background-color: rgb(26, 26, 252);
 }
 
-main{
+main .main1, main .main2{
     
     height: fit-content;
     padding: 50px;
