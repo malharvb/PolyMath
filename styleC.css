@@ -49,8 +49,9 @@
     transition: 0.2s ease-in-out;
 }
 input ~ .disbuttonsC{
-    left: 10000px;
+    left: 100000px;
     opacity: 0;
+    transform: translateY(20vh);
 }
 
 input:checked ~ .disbuttonsC{
