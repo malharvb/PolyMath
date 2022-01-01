@@ -132,14 +132,12 @@ button{
     border: none;
     color: white;
     padding: 10px 27px;
-    //text-align: center;
-    //text-decoration: none;
-    //display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 20px;
     
     cursor: pointer;
-    
-    //position:relative; top:30px; right:500px;
 }
 
 button:hover
@@ -149,8 +147,8 @@ button:hover
 
 .buttonn{
     margin-left: 15%;
+    list-style: none;
 }
-
 
 
 .inputcolor{

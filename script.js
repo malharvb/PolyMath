@@ -25,6 +25,7 @@ checkbox.addEventListener('change', (e) => {
 if(myStorage.getItem('dark') == 'true')
 {
     body.classList.add('dark');
+
 }
 else
 {
