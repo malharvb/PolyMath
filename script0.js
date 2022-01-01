@@ -3,6 +3,10 @@ let pow3 = 0, pow2 = 0, pow1 = 0, pow0 = 0;
 let letsCompute = document.querySelector('#letsCompute');
 let operator = '+'
 let operators = document.querySelectorAll('.operator');
+let letsCompLink = document.querySelector('#letsCompLink');
+let input = document.querySelectorAll('.inputss');
+
+
 
 function multiply(A, B)
 {
@@ -21,6 +25,18 @@ function multiply(A, B)
 function compute()
 {
     let str = '';
+    let count1 = 0,count2 = 0;
+    input.forEach(inp => {if(inp.value == 0) count1++});
+    input.forEach(inp => {if(inp.value == '') count2++});
+    
+    if(count1 == 8 || count2 > 0)
+    {
+        letsCompLink.href ='#';
+    }
+    else
+    {
+        letsCompLink.href ='workspace1.html';
+    }
 
     if(operator == '+')
     {
@@ -106,7 +122,7 @@ function compute()
     
            
     if(str.charAt(1) == '+')
-        str = str.substr(2);
+        str = str.substring(2);
     
     
     myStore.setItem('computedAns', str);
@@ -120,7 +136,32 @@ function opSelect(e)
     e.target.style.cssText = "background-color: rgb(33, 129, 255); border: 2px solid cyan;";
 }
 
+input.forEach(inp => inp.addEventListener('input', e => {setTimeout(function(){if(e.target.value == '') e.target.value = '0';},6000);}));
+
 operators.forEach(operator => operator.addEventListener('click',opSelect))
 
 
 letsCompute.addEventListener('click', compute);
+
+
+
+let calc = document.querySelector('i');
+checked = true;
+document.querySelector('.disbuttonsC').style.visibility = 'hidden';
+
+
+calc.addEventListener('click', () => {
+    
+    if(checked)
+    {
+        document.querySelector('.disbuttonsC').style.cssText = 'transition: all 0.4s ease-in-out;transform: translate(-150px);opacity: 100%;'
+        checked = false;
+    }
+    else
+    {
+        document.querySelector('.disbuttonsC').style.cssText = 'left: 10000px;transition: all 0.4s ease-in-out;transform: translate(100px);opacity: 0;'
+        checked = true;
+    }
+
+})
+
