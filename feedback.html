@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="polynomialvisualizerstyle.css">
-    <link rel="stylesheet" href="styleC.css">
     <script src="https://kit.fontawesome.com/0d2b2a293f.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
     <title>Feedback</title>
@@ -20,7 +19,7 @@
     <span><a href="index.html" id="home">Home</a></span>
     <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
     <span><a href="feedback.html" id="feedback">Feedback</a></span>
-    <span class="nav" style="position: relative; bottom: 3px; justify-content: flex-end;"><i class="fas fa-calculator"></i></span>
+    <span class="nav" style="position: relative; bottom: 3px; justify-content: flex-end; opacity: 0;"><i class="fas fa-calculator"></i></span>
     <span class="nav1">
         <div>
         <input type="checkbox" class="checkbox" id="checkbox">
@@ -36,8 +35,8 @@
 </div>
 <main>
     <div class="mainform">
-    <p style="justify-content: left; color: orange; text-decoration: underline;">Feedback Form</p>
-<form action="Feedback" class="form">
+    <p style="padding-left: 5vh; justify-content: left; color: orange; text-decoration: underline;">Feedback Form</p>
+<form style="padding-left: 5vh;" action="Feedback" class="form">
     <p>Name: <input type="text" name="name" id="nom"></p>
     <p>Email: <input type="email" name="email" id="email"></p>
     <p style=" display: flex; justify-content: bottom;">Enter Suggestion/Feedback:</p>

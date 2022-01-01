@@ -1,5 +1,3 @@
-
-
 .disbuttonsC {
     width: 200px;
     height: 200px;
@@ -48,19 +46,21 @@
     transition: 0.2s ease-in-out;
 }
 input ~ .disbuttonsC{
-    left: 10000px;
-    transition: all 0.4s ease-in-out;
-    transform: translate(100px);
+    left: 100000px;
     opacity: 0;
-
+    transform: translateY(20vh);
 }
 
 input:checked ~ .disbuttonsC{
-    transition: all 0.4s ease-in-out;
-    transform: translate(-150px);
+    transition: all 0.01s ease-in-out;
+    transform: translate(-55.5vh);
     opacity: 100%;
 }
 
 body {
     overflow-x: hidden;
+}
+
+#checkC{
+    opacity: 0;
 }

@@ -74,6 +74,7 @@ main .main1, main .main2{
 }
 .upper{
     display: flex;
+    margin-top: 2em;
 }
 .main1{
     flex: 60%;
@@ -95,11 +96,6 @@ main .main1, main .main2{
 }
 span .inputcolor{
     background-color: rgb(26, 26, 252);
-}
-.main2 li{
-    list-style: none;
-    text-align: bottom;
-    padding-top: 50px;
 }
 
 .main3{
@@ -136,13 +132,14 @@ button{
     border: none;
     color: white;
     padding: 10px 27px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    //text-align: center;
+    //text-decoration: none;
+    //display: inline-block;
     font-size: 20px;
     
     cursor: pointer;
     
+    //position:relative; top:30px; right:500px;
 }
 
 button:hover
@@ -317,3 +314,7 @@ button[type = "submit"]:hover{
     color: chartreuse;
 }
 
+.fa-calculator:hover{
+    background-color: orangered;
+    box-shadow: #292c35 1px;
+}
