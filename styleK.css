@@ -9,6 +9,8 @@
     display: grid;
     border-left: 1px solid#999;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    color: black;
+    
 }
 
 .buttonsK > div {
@@ -22,6 +24,7 @@
     text-align: center;
     font-size: 15px;
     cursor: pointer;
+    
 }
 
 #equalK {
