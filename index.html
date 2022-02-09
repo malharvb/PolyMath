@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="polynomialvisualizerstyle.css">
     <link rel="stylesheet" href="styleC.css">
+    <link rel="stylesheet" href="styleK.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
@@ -48,18 +49,31 @@
         <div class="upper">
             <div class="main1">
                 <li>
-                    <span class="inputcolor">Input 1: </span> <input class="inputss" style="width: 40px;" value = "0" type="number" name="input-1" id="input-1" required > 
-                    <a style="color: white; background-color: blue;"><big style="font-size: 20px; padding: 5px;">x</big><sup><small style="font-size: 70%; position: relative; right: 4px; top:2px; ">3</small></sup></a> <span style="color: black;">&plus;</span>
-                   
-                    <input class="inputss" style="width: 40px;" type="number" name="input-1" id="input-2" value = "0" required > 
-                    <a style="color: white; background-color: blue;"><big style="font-size: 20px; padding: 5px;">x</big><sup><small style="font-size: 70%; position: relative; right: 4px; top: 2px;">2</small></sup></a> <span style="color: black;">&plus;</span>
-                    
-                    <input class="inputss" style="width: 40px;" type="number" name="input-1" id="input-3" value = "0" required > 
-                    <a style="color: white; background-color: blue;"><big style="font-size: 20px; padding: 8px;">x</big><sup><small style="font-size: 70%; position: relative; right: 4px; top: 4px;"></small></sup></a> <span style="color: black;">&plus;</span>
-                    
-                    <input class="inputss" style="width: 40px;" type="number" name="input-1" id="input-4" value = "0" required > 
+                    <label class="inputcolor input1">Input 1: </label> <input class="inputss input1" value = "0" type="none" id="input-1" >
                     
                 </li> 
+
+                <div class="disbuttonsK">
+                    <div id="displayK"></div>
+                    <div class="buttonsK">
+                        <div class="buttonK">1</div>
+                        <div class="buttonK">2</div>
+                        <div class="buttonK">3</div>
+                        <div class="buttonK">C</div>
+                        <div class="buttonK">4</div>
+                        <div class="buttonK">5</div>
+                        <div class="buttonK">6</div>
+                        <div class="buttonK">&larr;</div>
+                        <div class="buttonK">7</div>
+                        <div class="buttonK">8</div>
+                        <div class="buttonK">9</div>
+                        <div class="buttonK">.</div>
+                        <div class="buttonK">x^</div>
+                        <div class="buttonK">0</div>
+                        <div class="buttonK">x</div>
+                        <div id="equalK" class="buttonK">Done</div>
+                    </div>
+                </div>
 
                 <li class="buttonn"> 
                     <button class="operator">+</button>

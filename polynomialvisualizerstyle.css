@@ -157,6 +157,7 @@ button:hover
     color: azure;
     font-size: 18px;
     font-style: normal;
+    padding: 3px;
 }
 
 footer
@@ -315,4 +316,12 @@ button[type = "submit"]:hover{
 .fa-calculator:hover{
     background-color: orangered;
     box-shadow: #292c35 1px;
+}
+
+.inputss{
+    width: 200px;
+    margin:10px;
+    border: black 1px solid;
+    border-radius: 5px;
+    padding:2px;
 }

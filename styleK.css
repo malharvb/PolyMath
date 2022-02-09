@@ -1,0 +1,52 @@
+.disbuttonsK {
+    width: 300px;
+    height: 20px;
+    justify-content: center;
+    display: inline-block;
+}
+
+.buttonsK {
+    display: grid;
+    border-left: 1px solid#999;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.buttonsK > div {
+    border-top: 1px solid #999;
+    border-right: 1px solid#999;
+}
+
+.buttonK {
+    border: 0.5px solid #999;
+    line-height: 19px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#equalK {
+    background-color: rgb(85, 85, 255);
+    color: white;
+}
+
+.buttonK:hover {
+    background-color: #323330;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+input ~ .disbuttonsK{
+    left: 100000px;
+    opacity: 0;
+    transform: translateY(20vh);
+}
+
+input:checked ~ .disbuttonsK{
+    transition: all 0.01s ease-in-out;
+    transform: translate(-55.5vh);
+    opacity: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+

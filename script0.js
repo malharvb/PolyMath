@@ -5,8 +5,18 @@ let operator = '+'
 let operators = document.querySelectorAll('.operator');
 let letsCompLink = document.querySelector('#letsCompLink');
 let input = document.querySelectorAll('.inputss');
+let input1 = document.querySelectorAll('.input1');
+let flag1 = 0;
 
+input1.forEach(a => a.addEventListener('click',callk))
 
+// function callk(e)
+// {   console.log(e.target.className);
+
+//     if(e.target.className[1] == )
+//     {
+//     }
+// }
 
 function multiply(A, B)
 {
