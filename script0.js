@@ -5,18 +5,29 @@ let operator = '+'
 let operators = document.querySelectorAll('.operator');
 let letsCompLink = document.querySelector('#letsCompLink');
 let input = document.querySelectorAll('.inputss');
-let input1 = document.querySelectorAll('.input1');
-let flag1 = 0;
+let input1 = document.querySelectorAll('#input1');
+let keypad = document.querySelector('.disbuttonsK')
+keypad.style.visibility = 'hidden'
+let flag1 = true;
 
-input1.forEach(a => a.addEventListener('click',callk))
+window.addEventListener('click',callk)
 
-// function callk(e)
-// {   console.log(e.target.className);
-
-//     if(e.target.className[1] == )
-//     {
-//     }
-// }
+function callk(e)
+{   
+    console.log(e.target.id)
+    if(e.target.id == "input1" && flag1)
+    {
+        keypad.style.visibility = 'visible'
+        input1.disabled = true
+        flag1 = false
+    }
+    else
+    {
+        keypad.style.visibility = 'hidden'
+        input1.disabled = false
+        flag1 = true;
+    }
+}
 
 function multiply(A, B)
 {
