@@ -80,7 +80,6 @@ main .main1, main .main2{
     flex: 60%;
     width: 50%;
     height: 40vh;
-    padding: 10px;
     border-right: 1px solid blue;
 }
 .main2{
@@ -325,3 +324,9 @@ button[type = "submit"]:hover{
     border-radius: 5px;
     padding:2px;
 }
+
+.selected
+{
+    border: 2px solid blue;
+}
+

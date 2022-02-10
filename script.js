@@ -3,7 +3,6 @@ const checkbox = document.querySelector('#checkbox');
 
 let myStorage = window.localStorage;
 checkbox.checked = myStorage.getItem('dark');
-console.log(myStorage.getItem('dark'), Boolean(myStorage.getItem('dark')))
 const body = document.querySelector('body');
 
 checkbox.addEventListener('change', (e) => {
@@ -17,7 +16,6 @@ checkbox.addEventListener('change', (e) => {
         body.classList.remove('dark');
         myStorage.setItem('dark', ""); 
     }
-    console.log(myStorage.getItem('dark'))
     
 });
 

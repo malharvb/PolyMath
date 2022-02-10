@@ -2,15 +2,16 @@
     width: 300px;
     height: 20px;
     justify-content: center;
-    display: inline-block;
+    display: relative;
+
 }
 
 .buttonsK {
     display: grid;
     border-left: 1px solid#999;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: .25fr .25fr .25fr .25fr;
     color: black;
-    
+    background: white;
 }
 
 .buttonsK > div {
@@ -20,7 +21,7 @@
 
 .buttonK {
     border: 0.5px solid #999;
-    line-height: 19px;
+    line-height: 5px;
     text-align: center;
     font-size: 15px;
     cursor: pointer;
@@ -37,19 +38,9 @@
     color: white;
     transition: 0.2s ease-in-out;
 }
-input ~ .disbuttonsK{
-    left: 100000px;
-    opacity: 0;
-    transform: translateY(20vh);
-}
 
-input:checked ~ .disbuttonsK{
-    transition: all 0.01s ease-in-out;
-    transform: translate(-55.5vh);
-    opacity: 100%;
-}
-
-body {
-    overflow-x: hidden;
+sup
+{
+    font-size: 15px;
 }
 

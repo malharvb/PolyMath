@@ -6,12 +6,16 @@ let operators = document.querySelectorAll('.operator');
 let letsCompLink = document.querySelector('#letsCompLink');
 let input = document.querySelectorAll('.inputss');
 let input1 = document.querySelector('#input1');
+let input2 = document.querySelector('#input2');
 let kbuttons = document.querySelectorAll('.buttonK')
 let opbuttons = document.querySelector('.buttonn')
 let keypad = document.querySelector('.disbuttonsK')
+let numbers = document.querySelectorAll('.number');
+let op = document.querySelectorAll('.op');
+let current_in,num_count=0,pow_count=0;
+let xno = document.querySelector('#xno')
+let xr = document.querySelector('#xr')
 keypad.style.visibility = 'hidden'
-
-
 
 function callk(e)
 {   
@@ -21,24 +25,83 @@ function callk(e)
         keypad.style.visibility = 'visible'
         opbuttons.style.visibility = 'hidden'
         input1.disabled = true
+        input1.classList.add('selected')
+        input2.classList.remove('selected')
+        input2.disabled = false
+        current_in = input1;
+    }
+    if(e.target.id == "input2")
+    {
+        opbuttons.style.visibility = 'hidden'
+        keypad.style.visibility = 'visible'
+        input2.disabled = true
+        input2.classList.add('selected')
+        input1.classList.remove('selected')
+        input1.disabled = false
+        current_in = input2;
     }
     
 }
 
 function kinput(e)
 {
-    console.log(e.target.innerHTML)
+    if(current_in.innerHTML == 0) current_in.innerHTML = '';
+    
     if(e.target.innerHTML == 'Done')
     {
         keypad.style.visibility = 'hidden'
         opbuttons.style.visibility = 'visible'
-        input1.disabled = false
+        current_in.disabled = false
     }
-    input1.innerHTML = e.target.innerHTML
-
+    else if(e.target.id == 'xr' || e.target.id == 'xno')
+    {
+        num_count=0;
+        if(e.target.id == 'xr')
+        {
+            xr.disabled = true  
+            xno.disabled = true
+            op.forEach(no => no.disabled = true)
+            numbers.forEach(no => no.disabled = false)
+        }
+        else
+        {
+            xr.disabled = true 
+            xno.disabled = true
+            numbers.forEach(no => no.disabled = true)
+        }
+        current_in.innerHTML += e.target.innerHTML
+    }
+    else if(e.target.classList[1] == 'op')
+    {
+        num_count=0;
+        xr.disabled = false  
+        xno.disabled = false
+        op.forEach(no => no.disabled = true)
+        numbers.forEach(n=> n.disabled = false)
+        current_in.innerHTML += e.target.innerHTML
+    }
+    else
+    {
+    
+        if(num_count < 1)
+        {
+            op.forEach(no => no.disabled = false)
+            if(current_in.innerHTML.charAt(current_in.innerHTML.length - 1) == '^')
+            {
+                current_in.innerHTML = current_in.innerHTML.slice(0,-1)
+                current_in.innerHTML += `<sup>${e.target.innerHTML}</sup>`
+            }
+            else
+            {
+                current_in.innerHTML += e.target.innerHTML
+            }
+        }
+        num_count++
+    }    
 }
 
 input1.addEventListener('click',callk)
+input2.addEventListener('click',callk)
 kbuttons.forEach(a => a.addEventListener('click',kinput))
 
 
