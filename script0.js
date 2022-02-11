@@ -12,7 +12,8 @@ let opbuttons = document.querySelector('.buttonn')
 let keypad = document.querySelector('.disbuttonsK')
 let numbers = document.querySelectorAll('.number');
 let op = document.querySelectorAll('.op');
-let current_in,num_count=0,pow_count=0;
+let current_in,curr_arr=[],num_count=0;
+let input1_arr=[], input2_arr=[], index;
 let xno = document.querySelector('#xno')
 let xr = document.querySelector('#xr')
 keypad.style.visibility = 'hidden'
@@ -52,6 +53,8 @@ function kinput(e)
         keypad.style.visibility = 'hidden'
         opbuttons.style.visibility = 'visible'
         current_in.disabled = false
+        //current_in.innerHTML = '+' + current_in.innerHTML
+        createPolyArr(current_in.innerHTML);
     }
     else if(e.target.id == 'xr' || e.target.id == 'xno')
     {
@@ -67,6 +70,7 @@ function kinput(e)
         {
             xr.disabled = true 
             xno.disabled = true
+            op.forEach(no => no.disabled = false)
             numbers.forEach(no => no.disabled = true)
         }
         current_in.innerHTML += e.target.innerHTML
@@ -99,6 +103,83 @@ function kinput(e)
         num_count++
     }    
 }
+
+function createPolyArr(str)
+{
+    if(current_in==input1)
+    {
+        curr_arr = input1_arr;
+    }
+    else
+    {
+        curr_arr = input2_arr
+    }
+    temp_arr = str.split(/[+]/)
+
+    temp_arr.forEach(el => {
+        arr = el.split('-')
+        
+        if(arr.length == 2)
+        {
+            index = temp_arr.indexOf(el)
+            temp_arr.splice(index, 1);
+            arr[1] = '-' + arr[1]
+            temp_arr.push(arr[0])
+            temp_arr.push(arr[1])
+        }
+
+        //console.log(arr)
+    })
+
+    console.log(temp_arr)
+    
+    temp_arr.forEach(el => {
+        poly_obj = {}
+        if(el[0] != '-' && (el[1] == 'x' || el[2] == 'x'))
+        {
+            console.log(el.length)
+            if(el.length == 2)
+            {
+                poly_obj.coeff = parseInt(el[0]);
+                poly_obj.deg = 1
+                
+                curr_arr.push(poly_obj)
+            }
+            else if(el.length == 3)
+            {
+                poly_obj.coeff = parseInt(el[0]+el[1]);
+                poly_obj.deg = 1
+                
+                curr_arr.push(poly_obj)
+            }
+            else if(el.length == 14)
+            {
+                poly_obj.coeff = parseInt(el[0]+el[1]);
+                poly_obj.deg = parseInt(el[7])
+                console.log(poly_obj)
+                
+                curr_arr.push(poly_obj)
+            }
+            else if(el.length == 15)
+            {
+                poly_obj.coeff = parseInt(el[1]);
+                poly_obj.deg = parseInt(el[8])
+                console.log(el[7])
+                
+                curr_arr.push(poly_obj)
+            }
+        }
+        else if(el[1] == 'x' || el[2] == 'x')
+        {
+
+        }
+       
+
+    })
+
+    console.log(input1_arr)
+}
+
 
 input1.addEventListener('click',callk)
 input2.addEventListener('click',callk)

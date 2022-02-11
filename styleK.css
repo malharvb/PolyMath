@@ -28,6 +28,10 @@
     
 }
 
+.buttonK:disabled {
+    background: #dddddd;
+}
+
 #equalK {
     background-color: rgb(85, 85, 255);
     color: white;
