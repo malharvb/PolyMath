@@ -106,6 +106,7 @@ function kinput(e)
 
 function createPolyArr(str)
 {
+    //checks for which input is currently selected
     if(current_in==input1)
     {
         curr_arr = input1_arr;
@@ -114,30 +115,51 @@ function createPolyArr(str)
     {
         curr_arr = input2_arr
     }
+
+    //splits string for + sign 
     temp_arr = str.split(/[+]/)
 
+    //spits - sign and adds - sign the term containing it
     temp_arr.forEach(el => {
         arr = el.split('-')
         
-        if(arr.length == 2)
+        if(arr.length >= 2)
         {
             index = temp_arr.indexOf(el)
             temp_arr.splice(index, 1);
-            arr[1] = '-' + arr[1]
-            temp_arr.push(arr[0])
-            temp_arr.push(arr[1])
+            if(arr[0] == '')
+            {
+                arr.shift()
+                arr.forEach(a => {
+                a = '-' + a;
+                temp_arr.push(a)
+            
+                })
+                
+            }
+            else
+            {
+                arr.forEach(a => {
+                    if(arr.indexOf(a) != 0)
+                    {
+                        a = '-' + a
+                    }    
+                    temp_arr.push(a)
+                })
+            }
+            
         }
 
-        //console.log(arr)
+        
     })
 
     console.log(temp_arr)
-    
+    //conveting the array with individual polynomial term arrays to only degree and coefficient
     temp_arr.forEach(el => {
+        
         poly_obj = {}
         if(el[0] != '-' && (el[1] == 'x' || el[2] == 'x'))
         {
-            console.log(el.length)
             if(el.length == 2)
             {
                 poly_obj.coeff = parseInt(el[0]);
@@ -156,7 +178,6 @@ function createPolyArr(str)
             {
                 poly_obj.coeff = parseInt(el[0]+el[1]);
                 poly_obj.deg = parseInt(el[7])
-                console.log(poly_obj)
                 
                 curr_arr.push(poly_obj)
             }
@@ -164,14 +185,82 @@ function createPolyArr(str)
             {
                 poly_obj.coeff = parseInt(el[1]);
                 poly_obj.deg = parseInt(el[8])
-                console.log(el[7])
                 
                 curr_arr.push(poly_obj)
             }
         }
-        else if(el[1] == 'x' || el[2] == 'x')
+        else if(el[2] == 'x' || el[0] == 'x' || el[1] == 'x')
         {
-
+            if(el.length == 1)
+            {
+                poly_obj.coeff = 1;
+                poly_obj.deg = 1
+                
+                curr_arr.push(poly_obj)
+            }
+            if(el.length == 2)
+            {
+                poly_obj.coeff = -1;
+                poly_obj.deg = 1
+                
+                curr_arr.push(poly_obj)
+            }
+            else if(el.length == 3)
+            {
+                poly_obj.coeff = parseInt(el[0]+el[1]);
+                poly_obj.deg = 1
+                
+                curr_arr.push(poly_obj)
+            }
+            else if(el.length == 13)
+            {
+                
+                poly_obj.coeff = 1;
+                poly_obj.deg = parseInt(el[6])
+                
+                
+                curr_arr.push(poly_obj)
+            }
+            else if(el.length == 14)
+            {
+                if(el[0] != '-')
+                {
+                    poly_obj.coeff = parseInt(el[0]+el[1]);
+                }
+                else
+                {
+                    poly_obj.coeff = -1
+                }
+                poly_obj.deg = parseInt(el[7])
+                
+                
+                curr_arr.push(poly_obj)
+            }
+            else if(el.length == 15)
+            {
+                poly_obj.coeff = parseInt(el[0] + el[1]);
+                poly_obj.deg = parseInt(el[8])
+                
+                
+                curr_arr.push(poly_obj)
+            }
+        }
+        else
+        {
+            if(el.length == 2)
+            {
+                poly_obj.coeff = parseInt(el);
+                poly_obj.deg = 0
+                
+                curr_arr.push(poly_obj)
+            }
+            else if (el.length == 1)
+            {
+                poly_obj.coeff = parseInt(el[0]);
+                poly_obj.deg = 0
+                
+                curr_arr.push(poly_obj)
+            }
         }
        
 
