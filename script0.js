@@ -23,6 +23,7 @@ function callk(e)
     numbers.forEach(n=> n.disabled = false);
     xr.disabled = false 
     xno.disabled = false
+    num_count = 0;
 
     if(e.target.id == "input1")
     {
