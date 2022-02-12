@@ -29,7 +29,7 @@
 }
 
 .buttonK:disabled {
-    background: #dddddd;
+    background: red;
 }
 
 #equalK {
