@@ -1,5 +1,4 @@
 let myStore = window.localStorage;
-let pow3 = 0, pow2 = 0, pow1 = 0, pow0 = 0;
 let letsCompute = document.querySelector('#letsCompute');
 let operator = '+'
 let operators = document.querySelectorAll('.operator');
@@ -20,7 +19,11 @@ keypad.style.visibility = 'hidden'
 
 function callk(e)
 {   
-    
+    op.forEach(no => no.disabled = false);
+    numbers.forEach(n=> n.disabled = false);
+    xr.disabled = false 
+    xno.disabled = false
+
     if(e.target.id == "input1")
     {
         keypad.style.visibility = 'visible'
@@ -48,6 +51,8 @@ function kinput(e)
 {
     if(current_in.innerHTML == 0) current_in.innerHTML = '';
     
+    
+
     if(e.target.innerHTML == 'Done')
     {
         keypad.style.visibility = 'hidden'
@@ -153,8 +158,7 @@ function createPolyArr(str)
         
     })
 
-    console.log(temp_arr)
-    //conveting the array with individual polynomial term arrays to only degree and coefficient
+    //converting the array with individual polynomial term arrays to only degree and coefficient
     temp_arr.forEach(el => {
         
         poly_obj = {}
@@ -275,6 +279,29 @@ input2.addEventListener('click',callk)
 kbuttons.forEach(a => a.addEventListener('click',kinput))
 
 
+//bubble sort to sort both input arrays in descending powers
+function bblSort(arr){
+     
+    for(let i = 0; i < arr.length; i++)
+    {
+        
+      for(let j = 0; j < ( arr.length - i -1 ); j++)
+      {
+          
+        if(arr[j].deg < arr[j+1].deg)
+        {
+    
+          let temp = arr[j]
+          arr[j] = arr[j + 1]
+          arr[j+1] = temp
+        }
+      }
+    }
+    
+    console.log(arr);
+}
+
+
 function multiply(A, B)
 {
     let prod = [];
@@ -289,35 +316,33 @@ function multiply(A, B)
     }
     return prod;
 }
+
+
 function compute()
 {
-    let str = '';
-    let count1 = 0,count2 = 0;
-    input.forEach(inp => {if(inp.value == 0) count1++});
-    input.forEach(inp => {if(inp.value == '') count2++});
-    
-    if(count1 == 8 || count2 > 0)
-    {
-        letsCompLink.href ='#';
-    }
-    else
-    {
-        letsCompLink.href ='workspace1.html';
-    }
+    let temp = ''
 
+    //sort the input arrays
+    bblSort(input1_arr)
+    bblSort(input2_arr)
+    
     if(operator == '+')
     {
-        pow3 = parseInt(document.querySelector('#input-1').value) + parseInt(document.querySelector('#input-5').value);
-        pow2 = parseInt(document.querySelector('#input-2').value) + parseInt(document.querySelector('#input-6').value);
-        pow1 = parseInt(document.querySelector('#input-3').value) + parseInt(document.querySelector('#input-7').value);
-        pow0 = parseInt(document.querySelector('#input-4').value) + parseInt(document.querySelector('#input-8').value);
+        for(let i = 0; i<input1_arr.length; i++)
+        {
+            for(let j = 0; j<input2_arr.length; j++)
+            {
+                if(input1_arr[i].deg == input2_arr[j].deg)
+                {
+                    temp += (input1_arr[i].deg +  input2_arr[j].deg) + 'x' + `<sup>${input1_arr[1].deg}</sup>`
+            
+                }
+            }
+        }
     }
     else if(operator == '-')
     {
-        pow3 = parseInt(document.querySelector('#input-1').value) - parseInt(document.querySelector('#input-5').value);
-        pow2 = parseInt(document.querySelector('#input-2').value) - parseInt(document.querySelector('#input-6').value);
-        pow1 = parseInt(document.querySelector('#input-3').value) - parseInt(document.querySelector('#input-7').value);
-        pow0 = parseInt(document.querySelector('#input-4').value) - parseInt(document.querySelector('#input-8').value);  
+       
     }
     else if(operator == '*')
     {
@@ -356,36 +381,7 @@ function compute()
     
 
     
-    if(operator == '+' || operator == '-')
-    {
-        if(pow3 != 0)
-        {
-            
-            str += `${pow3}x<sup>3</sup>`;
-        }
-        if(pow2 != 0)
-        {
-            if(pow2 > 0)
-                pow2 = ' + ' + pow2;
-            
-            
-            str += `${pow2}x<sup>2</sup>`;
-        }
-        if(pow1 != 0)
-        {
-            if(pow1 > 0)
-                pow1 = ' + ' + pow1;
-            
-            str += `${pow1}x`;
-        }
-        if(pow0 != 0)
-        {
-            if(pow0 > 0)
-                pow0 = ' + ' + pow0;
-           
-            str += `${pow0}`;
-        }
-    }    
+    
     
            
     if(str.charAt(1) == '+')
@@ -403,7 +399,7 @@ function opSelect(e)
     e.target.style.cssText = "background-color: rgb(33, 129, 255); border: 2px solid cyan;";
 }
 
-input.forEach(inp => inp.addEventListener('input', e => {setTimeout(function(){if(e.target.value == '') e.target.value = '0';},6000);}));
+input.forEach(inp => inp.addEventListener('click', e => {setTimeout(function(){if(e.target.innerHTML == '') e.target.value = '0';},6000);}));
 
 operators.forEach(operator => operator.addEventListener('click',opSelect))
 
