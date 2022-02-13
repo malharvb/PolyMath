@@ -12,7 +12,8 @@ let keypad = document.querySelector('.disbuttonsK')
 let numbers = document.querySelectorAll('.number');
 let op = document.querySelectorAll('.op');
 let current_in,curr_arr=[],num_count=0;
-let input1_arr=[], input2_arr=[], index;
+
+let input1_arr=[], input2_arr=[], index, output_arr=[];
 let xno = document.querySelector('#xno')
 let xr = document.querySelector('#xr')
 keypad.style.visibility = 'hidden'
@@ -24,26 +25,31 @@ function callk(e)
     xr.disabled = false 
     xno.disabled = false
     num_count = 0;
-
+    
+    if(e.target.disabled == true) return;
     if(e.target.id == "input1")
     {
         keypad.style.visibility = 'visible'
         opbuttons.style.visibility = 'hidden'
         input1.disabled = true
+        input2.disabled = true
         input1.classList.add('selected')
         input2.classList.remove('selected')
-        input2.disabled = false
         current_in = input1;
+        
+        
     }
     if(e.target.id == "input2")
     {
         opbuttons.style.visibility = 'hidden'
         keypad.style.visibility = 'visible'
         input2.disabled = true
+        input1.disabled = true
         input2.classList.add('selected')
         input1.classList.remove('selected')
-        input1.disabled = false
+
         current_in = input2;
+        
     }
     
 }
@@ -58,8 +64,11 @@ function kinput(e)
     {
         keypad.style.visibility = 'hidden'
         opbuttons.style.visibility = 'visible'
-        current_in.disabled = false
-        //current_in.innerHTML = '+' + current_in.innerHTML
+        input1.disabled = false
+        input2.disabled = false
+        input1.classList.remove('selected')
+        input2.classList.remove('selected')
+
         createPolyArr(current_in.innerHTML);
     }
     else if(e.target.id == 'xr' || e.target.id == 'xno')
@@ -117,9 +126,9 @@ function createPolyArr(str)
     {
         curr_arr = input1_arr;
     }
-    else
+    else if((current_in==input2))
     {
-        curr_arr = input2_arr
+        curr_arr = input2_arr;
     }
 
     //splits string for + sign 
@@ -271,7 +280,12 @@ function createPolyArr(str)
 
     })
 
-    console.log(input1_arr)
+    
+    if(current_in==input2)
+    {
+        test = curr_arr;
+    }
+    
 }
 
 
@@ -298,8 +312,9 @@ function bblSort(arr){
         }
       }
     }
+
     
-    console.log(arr);
+    
 }
 
 
@@ -321,29 +336,195 @@ function multiply(A, B)
 
 function compute()
 {
-    let temp = ''
-
+    
+    let calc_arr = [];
+    if(input1_arr.length == 0 || input2_arr.length == 0) return;
+    let stepStr = ''
     //sort the input arrays
     bblSort(input1_arr)
+    
     bblSort(input2_arr)
     
     if(operator == '+')
     {
+        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br>'
+        
         for(let i = 0; i<input1_arr.length; i++)
         {
+            let flag = false;
+            let poly_obj = {};
             for(let j = 0; j<input2_arr.length; j++)
             {
                 if(input1_arr[i].deg == input2_arr[j].deg)
                 {
-                    temp += (input1_arr[i].deg +  input2_arr[j].deg) + 'x' + `<sup>${input1_arr[1].deg}</sup>`
-            
+                    poly_obj.coeff = input1_arr[i].coeff +  input2_arr[j].coeff
+                    poly_obj.deg = input1_arr[i].deg
+                    output_arr.push(poly_obj)
+                    calc_arr.push(input1_arr[i].deg)
+
+                    if(input1_arr[i].deg > 1)
+                    {
+                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    }
+                    else if(input1_arr[i].deg == 1)
+                    {
+                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    }
+                    else
+                    {
+                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    }
+                    flag = true
+
+                }
+            }
+            if(flag == false)
+            {
+                poly_obj.coeff = input1_arr[i].coeff
+                poly_obj.deg = input1_arr[i].deg
+                output_arr.push(poly_obj)
+                if(input1_arr[i].deg > 1)
+                {
+                    stepStr += `${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else if(input1_arr[i].deg == 1)
+                {
+                    stepStr += `${input1_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else
+                {
+                    stepStr += `${input1_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
                 }
             }
         }
+
+        
+
+        for(let i = 0; i<input2_arr.length; i++)
+        {
+            let flag = false
+            
+            for(let j = 0; j<calc_arr.length; j++)
+            {
+                if(input2_arr[i].deg == calc_arr[j])
+                {
+                    flag = true
+                }
+            }
+            if(flag == false)
+            {
+                poly_obj.coeff = input2_arr[i].coeff
+                poly_obj.deg = input2_arr[i].deg
+                
+                output_arr.push(poly_obj)
+
+                if(input2_arr[i].deg > 1)
+                {
+                    stepStr += `${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else if(input2_arr[i].deg == 1)
+                {
+                    stepStr += `${input2_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else
+                {
+                    stepStr += `${input2_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+            }
+        }
+        stepStr = stepStr.slice(0,-26)
+        console.log(output_arr)
+
     }
     else if(operator == '-')
     {
-       
+        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br>'
+        for(let i = 0; i<input1_arr.length; i++)
+        {
+            let flag = false;
+            let poly_obj = {};
+            for(let j = 0; j<input2_arr.length; j++)
+            {
+                if(input1_arr[i].deg == input2_arr[j].deg)
+                {
+                    poly_obj.coeff = input1_arr[i].coeff -  input2_arr[j].coeff
+                    poly_obj.deg = input1_arr[i].deg
+                    
+                    output_arr.push(poly_obj)
+                    calc_arr.push(input1_arr[i].deg)
+
+                    if(input1_arr[i].deg > 1)
+                    {
+                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    }
+                    else if(input1_arr[i].deg == 1)
+                    {
+                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    }
+                    else
+                    {
+                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    }
+                    flag = true
+
+                }
+            }
+            if(flag == false)
+            {
+                poly_obj.coeff = input1_arr[i].coeff
+                poly_obj.deg = input1_arr[i].deg
+                output_arr.push(poly_obj)
+                if(input1_arr[i].deg > 1)
+                {
+                    stepStr += `${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else if(input1_arr[i].deg == 1)
+                {
+                    stepStr += `${input1_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else
+                {
+                    stepStr += `${input1_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+            }
+        }
+
+        
+
+        for(let i = 0; i<input2_arr.length; i++)
+        {
+            let flag = false
+            
+            for(let j = 0; j<calc_arr.length; j++)
+            {
+                if(input2_arr[i].deg == calc_arr[j])
+                {
+                    flag = true
+                }
+            }
+            if(flag == false)
+            {
+                poly_obj.coeff = -input2_arr[i].coeff
+                poly_obj.deg = input2_arr[i].deg
+                
+                output_arr.push(poly_obj)
+
+                if(input2_arr[i].deg > 1)
+                {
+                    stepStr += `-${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else if(input2_arr[i].deg == 1)
+                {
+                    stepStr += `-${input2_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+                else
+                {
+                    stepStr += `-${input2_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                }
+            }
+        }
+        stepStr = stepStr.slice(0,-26)
+        console.log(output_arr)
     }
     else if(operator == '*')
     {
@@ -380,30 +561,64 @@ function compute()
     }
 
     
-
+    let ans = opArrToString(output_arr)
     
-    
-    
-           
-    if(str.charAt(1) == '+')
-        str = str.substring(2);
-    
-    
-    myStore.setItem('computedAns', str);
+    stepStr += '<br>'+ans  
+    myStore.setItem('computedAns', ans);
+    myStore.setItem('steps', stepStr)
 
 }
 
 function opSelect(e)
 {   
-    operators.forEach(op => op.style.cssText = "background-color: rgb(26, 26, 252); border: none;")
+    operators.forEach(op => op.classList.remove('selected_op'))
     operator = e.target.innerHTML;
-    e.target.style.cssText = "background-color: rgb(33, 129, 255); border: 2px solid cyan;";
+    e.target.classList.add('selected_op')
 }
+
+function opArrToString(arr)
+{
+    let str = ''
+    let temp = ''
+    arr.forEach(el => 
+        {
+
+            if(el.coeff != 0 )
+            {
+                if(el.deg > 1)
+                {
+                    temp = el.coeff + `x<sup>${el.deg}</sup>`
+                }
+                else if(el.deg == 1)
+                {
+                    temp = el.coeff + 'x'
+                }
+                else if(el.deg == 0)
+                {
+                    temp = el.coeff
+                }
+
+
+
+                if(el.coeff > 0)
+                {
+                    temp = '+' + temp
+                }
+                
+
+                str += temp
+
+            }
+        })
+    
+    return str;
+}
+
+
 
 input.forEach(inp => inp.addEventListener('click', e => {setTimeout(function(){if(e.target.innerHTML == '') e.target.value = '0';},6000);}));
 
 operators.forEach(operator => operator.addEventListener('click',opSelect))
-
 
 letsCompute.addEventListener('click', compute);
 

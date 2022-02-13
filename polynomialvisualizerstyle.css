@@ -340,3 +340,9 @@ button[type = "submit"]:hover{
     padding: 2%;
     margin-top: 10%;
 }
+
+.selected_op
+{
+    background-color: rgb(33, 129, 255); 
+    border: 2px solid cyan;
+}
