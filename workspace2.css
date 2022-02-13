@@ -150,6 +150,7 @@ footer
 {
     width: 15em;
     align-self: center;
+    border-radius: 1px;
 }
 
 #main-container
@@ -279,4 +280,12 @@ body.dark {
 
 .fa-calculator{
     color: white;
+}
+
+.input-label{
+    border-radius: 100% 10% 100% 100%;
+}
+
+.dwn{
+    border-radius: 1px;
 }
