@@ -337,13 +337,17 @@ function multiply(A, B)
 function compute()
 {
     
+    
     let calc_arr = [];
     if(input1_arr.length == 0 || input2_arr.length == 0) return;
     let stepStr = ''
     //sort the input arrays
+    //console.log(input1_arr,input2_arr)
     bblSort(input1_arr)
-    
+    //console.log(input1_arr,input2_arr)
     bblSort(input2_arr)
+
+    //console.log(input1_arr,input2_arr)
     
     if(operator == '+')
     {
@@ -361,7 +365,7 @@ function compute()
                     poly_obj.deg = input1_arr[i].deg
                     output_arr.push(poly_obj)
                     calc_arr.push(input1_arr[i].deg)
-
+                    //console.log('1' + poly_obj)
                     if(input1_arr[i].deg > 1)
                     {
                         stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
@@ -383,6 +387,7 @@ function compute()
                 poly_obj.coeff = input1_arr[i].coeff
                 poly_obj.deg = input1_arr[i].deg
                 output_arr.push(poly_obj)
+                //console.log('1' + poly_obj)
                 if(input1_arr[i].deg > 1)
                 {
                     stepStr += `${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
@@ -403,11 +408,13 @@ function compute()
         for(let i = 0; i<input2_arr.length; i++)
         {
             let flag = false
-            
+            let poly_obj = {};
+            console.log(calc_arr)
             for(let j = 0; j<calc_arr.length; j++)
             {
-                if(input2_arr[i].deg == calc_arr[j])
+                if(input2_arr[i].deg === calc_arr[j])
                 {
+                    console.log('here')
                     flag = true
                 }
             }
@@ -415,7 +422,7 @@ function compute()
             {
                 poly_obj.coeff = input2_arr[i].coeff
                 poly_obj.deg = input2_arr[i].deg
-                
+                //console.log('2' + poly_obj.coeff  + poly_obj.deg)
                 output_arr.push(poly_obj)
 
                 if(input2_arr[i].deg > 1)
@@ -452,7 +459,7 @@ function compute()
                     
                     output_arr.push(poly_obj)
                     calc_arr.push(input1_arr[i].deg)
-
+                    //console.log('1' + poly_obj.coeff  + poly_obj.deg)
                     if(input1_arr[i].deg > 1)
                     {
                         stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
@@ -560,9 +567,14 @@ function compute()
         
     }
 
-    
+    bblSort(output_arr)
     let ans = opArrToString(output_arr)
     
+    if(ans.charAt(0) == '+')
+    {
+        ans = ans.slice(1);
+    }
+
     stepStr += '<br>'+ans  
     myStore.setItem('computedAns', ans);
     myStore.setItem('steps', stepStr)
