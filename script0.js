@@ -114,8 +114,12 @@ function kinput(e)
             {
                 current_in.innerHTML += e.target.innerHTML
             }
+            num_count++
         }
-        num_count++
+        if(num_count >= 1)
+        {
+            numbers.forEach(n=> n.disabled = true)
+        }
     }    
 }
 
@@ -575,8 +579,6 @@ function compute()
             }
         }
 
-        console.log(a)
-        console.log(b)
         
         let prodArr = multiply(a,b);
 
@@ -589,7 +591,7 @@ function compute()
 
         }
 
-        console.log(output_arr)
+        
     }
 
     bblSort(output_arr)
