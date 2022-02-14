@@ -537,34 +537,59 @@ function compute()
     {
         
         let a = []
-        for(let i = 4; i>0; i--) a[4-i] = document.querySelector(`#input-${i}`).value;
+
+        for(let i = input1_arr[0].deg; i >= 0; i--)
+        {
+            let flag = false
+            for(let j = 0; j < input1_arr.length; j++)
+            {
+                if(i == input1_arr[j].deg)
+                {
+                    a.push(input1_arr[j].coeff)
+                    flag = true
+                }
+            }
+
+            if(flag == false)
+            {
+                a.push(0)
+            }
+        }
         
         let b = []
-        for(let i = 8; i>4; i--) b[8-i] = document.querySelector(`#input-${i}`).value;
-
-
-        
-        let prodArr = multiply(a,b);
-
-        for (let i = prodArr.length-1; i >= 0 ; i--)
+        for(let i = input2_arr[0].deg; i >= 0; i--)
         {
-            if(prodArr[i] != 0)
-            {   
-                
-                if (i != prodArr.length-1)
+            let flag = false
+            for(let j = 0; j < input2_arr.length; j++)
+            {
+                if(i == input2_arr[j].deg)
                 {
-                    if(prodArr[i] > 0)
-                    str += ' + ';
+                    b.push(input2_arr[j].coeff)
+                    flag = true
                 }
-                str += prodArr[i];
-                if (i != 0 && i != 1)
-                    str +="x<sup>"+i+"</sup>";
-                if (i == 1)
-                    str +="x";
+            }
+
+            if(flag == false)
+            {
+                b.push(0)
             }
         }
 
+        console.log(a)
+        console.log(b)
         
+        let prodArr = multiply(a,b);
+
+        for(let i = prodArr.length-1; i >= 0 ; i--)
+        {
+            let poly_obj = {}
+            poly_obj.coeff = prodArr[prodArr.length - i -1]
+            poly_obj.deg = i
+            output_arr.push(poly_obj)
+
+        }
+
+        console.log(output_arr)
     }
 
     bblSort(output_arr)
