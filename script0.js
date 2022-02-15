@@ -505,7 +505,7 @@ function compute()
         for(let i = 0; i<input2_arr.length; i++)
         {
             let flag = false
-            
+            let poly_obj = {};
             for(let j = 0; j<calc_arr.length; j++)
             {
                 if(input2_arr[i].deg == calc_arr[j])
