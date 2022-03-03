@@ -9,7 +9,7 @@
 .buttonsK {
     display: grid;
     border-left: 1px solid#999;
-    grid-template-columns: .25fr .25fr .25fr .25fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     color: black;
     background: white;
 }
