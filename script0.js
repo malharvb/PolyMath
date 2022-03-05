@@ -12,6 +12,7 @@ let keypad = document.querySelector('.disbuttonsK')
 let numbers = document.querySelectorAll('.number');
 let op = document.querySelectorAll('.op');
 let current_in,curr_arr=[],num_count=0;
+let stepStr;
 
 let input1_arr=[], input2_arr=[], index, output_arr=[];
 let xno = document.querySelector('#xno')
@@ -327,13 +328,21 @@ function multiply(A, B)
     let prod = [];
     let m = A.length;
     let n = B.length;
+
     for (let i = 0; i < m + n - 1; i++) prod[i] = 0;
     
-    for(let i = 0; i < m ; i++){
-        
+    for(let i = 0; i < m ; i++)
+    {       
         for (let j = 0; j < n ; j++)
+        {
             prod[i + j] += A[i] * B[j];
+            if(A[i] != 0 && B[j] != 0)
+            {
+                stepStr += `(${A[i]} * ${B[j]})x<sup>(${m-i-1}+${n-j-1})</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`                
+            }
+        }
     }
+    stepStr = stepStr.slice(0,-26)
     return prod;
 }
 
@@ -344,14 +353,14 @@ function compute()
     
     let calc_arr = [];
     if(input1_arr.length == 0 || input2_arr.length == 0) return;
-    let stepStr = ''
+    stepStr = ''
     //sort the input arrays
-    //console.log(input1_arr,input2_arr)
+    
     bblSort(input1_arr)
-    //console.log(input1_arr,input2_arr)
+    
     bblSort(input2_arr)
 
-    //console.log(input1_arr,input2_arr)
+    
     
     if(operator == '+')
     {
@@ -539,7 +548,7 @@ function compute()
     }
     else if(operator == '*')
     {
-        
+        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br>'
         let a = []
 
         for(let i = input1_arr[0].deg; i >= 0; i--)
