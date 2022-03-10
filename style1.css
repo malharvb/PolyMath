@@ -82,11 +82,15 @@ hr{
     padding: 50px;
     
 }
-
+.main2
+{
+    flex: 2;
+}
 #steps, #vis
 {
     border: 3px solid blue;
-    height: 40vh
+    height: 40vh;
+    padding: 2em
 }
 
 
@@ -329,4 +333,12 @@ button[type = "submit"]:hover{
 #letsCompute:hover
 {
     color: cyan;
+}
+
+#result
+{
+    color: #ff007f;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
 }

@@ -500,7 +500,7 @@ function compute()
     }
     else if(operator == '-')
     {
-        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br>'
+        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br><br>'
         for(let i = 0; i<input1_arr.length; i++)
         {
             let flag = false;
@@ -590,7 +590,7 @@ function compute()
     }
     else if(operator == '*')
     {
-        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br>'
+        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br><br>'
         let a = []
 
         for(let i = input1_arr[0].deg; i >= 0; i--)
@@ -653,9 +653,9 @@ function compute()
         ans = ans.slice(1);
     }
 
-    stepStr += '<br>'+ans  
-    myStore.setItem('computedAns', ans);
-    myStore.setItem('steps', stepStr)
+    stepStr += '<br><br>'+ans  
+    document.querySelector('#result').innerHTML = ans
+    document.querySelector('#steps').innerHTML = stepStr
 
 }
 
