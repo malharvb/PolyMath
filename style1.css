@@ -23,7 +23,7 @@
     justify-content: right;
 }
 
- a{
+a{
     color: azure;
     text-decoration: none;
 }
@@ -60,71 +60,37 @@ hr{
     background-color: rgb(26, 26, 252);
 }
 
-main .main1, main .main2{
-    
-    height: fit-content;
-    padding: 50px;
+.main1, .main2, .main3
+{
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1.5em;
     font-family: 'Roboto', sans-serif;
-    color: azure;
-
-    line-height: 80px;
-    
-   
-   
+    color: blue;
+    border-right: 1px solid blue;
 }
+
 .upper{
     display: flex;
     margin-top: 2em;
 }
-.main1{
-    flex: 60%;
-    width: 50%;
-    height: 40vh;
-    border-right: 1px solid blue;
-}
-.main2{
-    width: 50%;
-    height: 40vh;
-    padding: 10px;
-    text-align: center;
+.main1
+{
     
-}
-.main1 li{
-    list-style: none;
-    
-}
-span .inputcolor{
-    background-color: rgb(26, 26, 252);
-}
-
-.main3{
-    width: 100%;
-    height: 20vh;
-    padding: 10px;
-    color: blue;
-}
-.main3 li{
-    list-style:square;
-    line-height: 40px;
-}
-main p{
-    color:blue;
+    padding: 50px;
     
 }
 
-main li{
-    color:blue;
-    text-decoration: none;
-    text-indent: 10px;
+#steps, #vis
+{
+    border: 3px solid blue;
+    height: 40vh
 }
 
-span {
-    
-    font-size: small;
-    font-weight: lighter;
-    padding: 5px;
-    color: blue;
-}
+
+
 
 button{
     background-color: rgb(26, 26, 252);
@@ -144,20 +110,21 @@ button:hover
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.buttonn{
-    margin-left: 15%;
-    list-style: none;
-}
+
 
 
 .inputcolor{
     background-color: rgb(26, 26, 252);
     font-family: 'Roboto', sans-serif;
     color: azure;
-    font-size: 18px;
-    font-style: normal;
-    padding: 15px;
-    border-radius: 100% 10% 100% 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3em;
+    height: 3em;
+    width: 20vh;
 }
 
 footer
@@ -320,11 +287,15 @@ button[type = "submit"]:hover{
 
 .inputss{
     width: 200px;
+    height: 3em;
     margin:10px;
     border: black 1px solid;
     border-radius: 5px;
-    padding:2px;
-    display: inline-block;
+    padding: 2px;
+    
+    color: black;
+    font-size: 18px;
+
 }
 
 .selected
@@ -332,17 +303,30 @@ button[type = "submit"]:hover{
     border: 2px solid blue;
 }
 
-#input1{
+#input1
+{
     padding: 2%;
 }
 
-#input2{
+#input2
+{
     padding: 2%;
-    margin-top: 10%;
 }
 
 .selected_op
 {
     background-color: rgb(33, 129, 255); 
     border: 2px solid cyan;
+}
+
+.flex-con
+{
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+#letsCompute:hover
+{
+    color: cyan;
 }

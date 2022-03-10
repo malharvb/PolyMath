@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="polynomialvisualizerstyle.css">
+    <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="styleC.css">
     <link rel="stylesheet" href="styleK.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,64 +38,37 @@
         </span>
         
     </div>
-    <div id="num-line-div"><hr id="num-line"></div>
-    <div class="number-container">
-        <div class="circle" id="cc">1</div>
-        <div class="circle">2</div>
-        <div class="circle">3</div>
-        <div class="circle">4</div>
-    </div>
    
     <main>
         <div class="upper">
             <div class="main1">
                 
-                <li>
-                    <label class="inputcolor input1">Input 1: </label> <div class="inputss" id = "input1" value = "0" id="input-1" ></div>
-                </li>
-            
-                <div class="disbuttonsK">
-                    <div class="buttonsK">
-                        <button class="buttonK number">1</button>
-                        <button class="buttonK number">2</button>
-                        <button class="buttonK number">3</button>
-                        <button class="buttonK">&larr;</button>
-                        <button class="buttonK number">4</button>
-                        <button class="buttonK number">5</button>
-                        <button class="buttonK number">6</button>
-                        <button class="buttonK op">+</button>
-                        <button class="buttonK number">7</button>
-                        <button class="buttonK number">8</button>
-                        <button class="buttonK number">9</button>
-                        <button class="buttonK op">-</button>
-                        <button class="buttonK" id="xr">x^</button>
-                        <button class="buttonK number">0</button>
-                        <button class="buttonK" id="xno">x</button>
-                        <button id="equalK" class="buttonK">Done</button>
-                    </div>
+                <div class="flex-con">
+                <label class="inputcolor">Input 1: </label> <div class="inputss" id = "input1" value = "0" id="input-1" ></div>
                 </div>
 
-                <li class="buttonn"> 
+                <div class="button-grp"> 
                     <button class="operator selected_op">+</button>
                     <button class="operator">-</button> 
                     <button class="operator">*</button> 
-                </li>
+                </div>
 
-                <li>
-                    <label class="inputcolor input1">Input 2: </label> <div class="inputss" id="input2" value = "0" type="none" id="input-2" ></div>
-                </li> 
+                <div class="flex-con">
+                <label class="inputcolor input1">Input 2: </label> <div class="inputss" id="input2" value = "0" type="none" id="input-2" ></div>
+                </div>
 
-                
+                <button id="letsCompute">Let's Compute</button>
             </div>  
-                <hr>
+        
             <div class="main2">
-                <br>
-                
-                
-                    <button id="letsCompute"><a href="workspace1.html" id = "letsCompLink">Let's Compute</a></button>
-                
-            
-            </div>  
+                <div>Steps</div>
+                <div id="steps"></div>
+            </div>
+
+            <div class="main3">
+                <div>Visualization</div>
+                <div id="vis"></div>
+            </div>
     
             <div class="disbuttonsC">
                 <div id="displayC"></div>

@@ -6,31 +6,63 @@ let letsCompLink = document.querySelector('#letsCompLink');
 let input = document.querySelectorAll('.inputss');
 let input1 = document.querySelector('#input1');
 let input2 = document.querySelector('#input2');
-let kbuttons = document.querySelectorAll('.buttonK')
-let opbuttons = document.querySelector('.buttonn')
+let kbuttons
+let opbuttons = document.querySelector('.button-grp')
 let keypad = document.querySelector('.disbuttonsK')
-let numbers = document.querySelectorAll('.number');
-let op = document.querySelectorAll('.op');
+let main1 = document.querySelector('.main1')
+let numbers
+let op
+let keypadWrapper = document.createElement('div')
 let current_in,curr_arr=[],num_count=0;
 let stepStr;
 
 let input1_arr=[], input2_arr=[], index, output_arr=[];
-let xno = document.querySelector('#xno')
-let xr = document.querySelector('#xr')
-keypad.style.visibility = 'hidden'
+let xno;
+let xr;
+
+
+
+function populateKeypad(kswitch)
+{
+    if(!kswitch) 
+    {
+        main1.removeChild(main1.children[1])
+        return;
+    }
+
+    keypadWrapper.innerHTML = `<div class="disbuttonsK">
+    <div class="buttonsK">
+        <button class="buttonK number">1</button>
+        <button class="buttonK number">2</button>
+        <button class="buttonK number">3</button>
+        <button class="buttonK">&larr;</button>
+        <button class="buttonK number">4</button>
+        <button class="buttonK number">5</button>
+        <button class="buttonK number">6</button>
+        <button class="buttonK op">+</button>
+        <button class="buttonK number">7</button>
+        <button class="buttonK number">8</button>
+        <button class="buttonK number">9</button>
+        <button class="buttonK op">-</button>
+        <button class="buttonK" id="xr">x^</button>
+        <button class="buttonK number">0</button>
+        <button class="buttonK" id="xno">x</button>
+        <button id="equalK" class="buttonK">Done</button>
+    </div>
+    </div>`
+    main1.insertBefore(keypadWrapper, main1.children[1])
+}   
+
+
 
 function callk(e)
 {   
-    op.forEach(no => no.disabled = false);
-    numbers.forEach(n=> n.disabled = false);
-    xr.disabled = false 
-    xno.disabled = false
-    num_count = 0;
+    
     
     if(e.target.disabled == true) return;
     if(e.target.id == "input1")
     {
-        keypad.style.visibility = 'visible'
+        populateKeypad(true)
         opbuttons.style.visibility = 'hidden'
         input1.disabled = true
         input2.disabled = true
@@ -43,7 +75,7 @@ function callk(e)
     if(e.target.id == "input2")
     {
         opbuttons.style.visibility = 'hidden'
-        keypad.style.visibility = 'visible'
+        populateKeypad(true)
         input2.disabled = true
         input1.disabled = true
         input2.classList.add('selected')
@@ -52,18 +84,28 @@ function callk(e)
         current_in = input2;
         
     }
-    
+    kbuttons = document.querySelectorAll('.buttonK')
+    kbuttons.forEach(a => a.addEventListener('click',kinput))
+    op = document.querySelectorAll('.op');
+    numbers = document.querySelectorAll('.number');
+    op.forEach(no => no.disabled = false);
+    numbers.forEach(n=> n.disabled = false);
+    xr = document.querySelector('#xr')
+    xr.disabled = false 
+    xno = document.querySelector('#xno')
+    xno.disabled = false
+    num_count = 0;
 }
 
 function kinput(e)
 {
     if(current_in.innerHTML == 0) current_in.innerHTML = '';
-    
+    console.log('here')
     
 
     if(e.target.innerHTML == 'Done')
     {
-        keypad.style.visibility = 'hidden'
+        populateKeypad(false)
         opbuttons.style.visibility = 'visible'
         input1.disabled = false
         input2.disabled = false
@@ -296,7 +338,7 @@ function createPolyArr(str)
 
 input1.addEventListener('click',callk)
 input2.addEventListener('click',callk)
-kbuttons.forEach(a => a.addEventListener('click',kinput))
+
 
 
 //bubble sort to sort both input arrays in descending powers
