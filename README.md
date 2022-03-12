@@ -1,3 +1,3 @@
 # SE-mini-project
 
-Live Demo: https://malharvb.github.io/mini-proj-temp/
+[Live-Demo :point_left:](https://malharvb.github.io/SE-mini-project/)
