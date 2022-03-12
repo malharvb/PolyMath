@@ -6,16 +6,16 @@ let letsCompLink = document.querySelector('#letsCompLink');
 let input = document.querySelectorAll('.inputss');
 let input1 = document.querySelector('#input1');
 let input2 = document.querySelector('#input2');
-let kbuttons
+let kbuttons,numbers,op;
+let vis = document.querySelector('#vis')
 let opbuttons = document.querySelector('.button-grp')
 let keypad = document.querySelector('.disbuttonsK')
 let main1 = document.querySelector('.main1')
-let numbers
-let op
+let upper = document.querySelector('.upper')
 let keypadWrapper = document.createElement('div')
 let current_in,curr_arr=[],num_count=0;
-let stepStr;
-
+let stepStr,stepsArr=[];
+let calcBtn = document.querySelector('#calcAnim');
 let input1_arr=[], input2_arr=[], index, output_arr=[];
 let xno;
 let xr;
@@ -100,7 +100,7 @@ function callk(e)
 function kinput(e)
 {
     if(current_in.innerHTML == 0) current_in.innerHTML = '';
-    console.log('here')
+   
     
 
     if(e.target.innerHTML == 'Done')
@@ -406,7 +406,7 @@ function compute()
     
     if(operator == '+')
     {
-        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br>'
+        stepStr = input1.innerHTML + '&emsp;+&emsp;' + input2.innerHTML + '<br><br>'
         
         for(let i = 0; i<input1_arr.length; i++)
         {
@@ -420,18 +420,21 @@ function compute()
                     poly_obj.deg = input1_arr[i].deg
                     output_arr.push(poly_obj)
                     calc_arr.push(input1_arr[i].deg)
-                    //console.log('1' + poly_obj)
+            
                     if(input1_arr[i].deg > 1)
                     {
-                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`
+                        stepsArr.push(`(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`)
                     }
                     else if(input1_arr[i].deg == 1)
                     {
-                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x&emsp;+&emsp;`
+                        stepsArr.push(`(${input1_arr[i].coeff} + ${input2_arr[j].coeff})x&emsp;+&emsp;`)
                     }
                     else
                     {
-                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                        stepStr += `(${input1_arr[i].coeff} + ${input2_arr[j].coeff})&emsp;+&emsp;`
+                        stepsArr.push(`(${input1_arr[i].coeff} + ${input2_arr[j].coeff})&emsp;+&emsp;`)
                     }
                     flag = true
 
@@ -442,18 +445,21 @@ function compute()
                 poly_obj.coeff = input1_arr[i].coeff
                 poly_obj.deg = input1_arr[i].deg
                 output_arr.push(poly_obj)
-                //console.log('1' + poly_obj)
+                
                 if(input1_arr[i].deg > 1)
                 {
-                    stepStr += `${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`
+                    stepsArr.push(`${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`)
                 }
                 else if(input1_arr[i].deg == 1)
                 {
-                    stepStr += `${input1_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input1_arr[i].coeff}x&emsp;+&emsp;`
+                    stepsArr.push(`${input1_arr[i].coeff}x&emsp;+&emsp;`)
                 }
                 else
                 {
-                    stepStr += `${input1_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input1_arr[i].coeff}&emsp;+&emsp;`
+                    stepsArr.push(`${input1_arr[i].coeff}&emsp;+&emsp;`)
                 }
             }
         }
@@ -464,12 +470,11 @@ function compute()
         {
             let flag = false
             let poly_obj = {};
-            console.log(calc_arr)
+            
             for(let j = 0; j<calc_arr.length; j++)
             {
                 if(input2_arr[i].deg === calc_arr[j])
                 {
-                    console.log('here')
                     flag = true
                 }
             }
@@ -477,25 +482,28 @@ function compute()
             {
                 poly_obj.coeff = input2_arr[i].coeff
                 poly_obj.deg = input2_arr[i].deg
-                //console.log('2' + poly_obj.coeff  + poly_obj.deg)
+                
                 output_arr.push(poly_obj)
 
                 if(input2_arr[i].deg > 1)
                 {
-                    stepStr += `${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&emsp;+&emsp;`
+                    stepsArr.push(`${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&emsp;+&emsp;`)
                 }
                 else if(input2_arr[i].deg == 1)
                 {
-                    stepStr += `${input2_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input2_arr[i].coeff}x&emsp;+&emsp;`
+                    stepsArr.push(`${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&emsp;+&emsp;`)
                 }
                 else
                 {
-                    stepStr += `${input2_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input2_arr[i].coeff}&emsp;+&emsp;`
+                    stepsArr.push(`${input2_arr[i].coeff}&emsp;+&emsp;`)
                 }
             }
         }
-        stepStr = stepStr.slice(0,-26)
-        console.log(output_arr)
+        stepStr = stepStr.slice(0,-13)
+        
 
     }
     else if(operator == '-')
@@ -514,7 +522,7 @@ function compute()
                     
                     output_arr.push(poly_obj)
                     calc_arr.push(input1_arr[i].deg)
-                    //console.log('1' + poly_obj.coeff  + poly_obj.deg)
+                    
                     if(input1_arr[i].deg > 1)
                     {
                         stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
@@ -586,7 +594,7 @@ function compute()
             }
         }
         stepStr = stepStr.slice(0,-26)
-        console.log(output_arr)
+        
     }
     else if(operator == '*')
     {
@@ -656,6 +664,7 @@ function compute()
     stepStr += '<br><br>'+ans  
     document.querySelector('#result').innerHTML = ans
     document.querySelector('#steps').innerHTML = stepStr
+    visFn()
 
 }
 
@@ -714,23 +723,133 @@ letsCompute.addEventListener('click', compute);
 
 
 
-let calc = document.querySelector('i');
-checked = true;
-document.querySelector('.disbuttonsC').style.visibility = 'hidden';
 
 
-calc.addEventListener('click', () => {
-    
-    if(checked)
+
+
+let calcSwitch = true
+let calcWrapper = document.createElement('div')
+calcWrapper.classList.add('disbuttonsC')
+calcWrapper.innerHTML = `<div id="displayC"></div>
+    <div class="buttonsC">
+    <div class="buttonC">C</div>
+    <div class="buttonC">/</div>
+    <div class="buttonC">*</div>
+    <div class="buttonC">&larr;</div>
+    <div class="buttonC">7</div>
+    <div class="buttonC">8</div>
+    <div class="buttonC">9</div>
+    <div class="buttonC">-</div>
+    <div class="buttonC">4</div>
+    <div class="buttonC">5</div>
+    <div class="buttonC">6</div>
+    <div class="buttonC">+</div>
+    <div class="buttonC">1</div>
+    <div class="buttonC">2</div>
+    <div class="buttonC">3</div>
+    <div class="buttonC">.</div>
+    <div class="buttonC">(</div>
+    <div class="buttonC">0</div>
+    <div class="buttonC">)</div>
+    <div id="equalC" class="buttonC">=</div>
+    </div>`
+function calcDispFn()
+{
+    if(calcSwitch)
     {
-        document.querySelector('.disbuttonsC').style.cssText = 'transition: all 0.4s ease-in-out;transform: translate(-150px);opacity: 100%;'
-        checked = false;
+        upper.appendChild(calcWrapper)
+        //code for calculator
+        let display = document.getElementById('displayC');
+
+        let buttons = Array.from(document.getElementsByClassName('buttonC'));
+
+        buttons.map( button => {
+            button.addEventListener('click', (e) => {
+                switch(e.target.innerText){
+                    case 'C':
+                        display.innerText = '';
+                        break;
+                    case '=':
+                        try{
+                            display.innerText = eval(display.innerText);
+                        } catch {
+                            display.innerText = "Error"
+                        }
+                        break;
+                    case '←':
+                        if (display.innerText){
+                        display.innerText = display.innerText.slice(0, -1);
+                        }
+                        break;
+                    default:
+                        display.innerText += e.target.innerText;
+                }
+            });
+        });
+        calcSwitch = false
     }
     else
     {
-        document.querySelector('.disbuttonsC').style.cssText = 'left: 10000px;transition: all 0.4s ease-in-out;transform: translate(100px);opacity: 0;'
-        checked = true;
+        upper.removeChild(calcWrapper)
+        
+        calcSwitch = true
     }
+}
 
-})
 
+calcBtn.addEventListener('click', calcDispFn)
+
+
+function arrToString(arr)
+{
+    let str = ''
+    let temp = ''
+    arr.forEach(el => 
+        {
+
+            if(el.coeff != 0 )
+            {
+                if(el.deg > 1)
+                {
+                    temp = el.coeff + `x^${el.deg}`
+                }
+                else if(el.deg == 1)
+                {
+                    temp = el.coeff + 'x'
+                }
+                else if(el.deg == 0)
+                {
+                    temp = el.coeff
+                }
+
+
+
+                if(el.coeff > 0)
+                {
+                    temp = '+' + temp
+                }
+                
+
+                str += temp
+
+            }
+        })
+    if(str.charAt(0) == '+')
+    {
+        str = str.substring(1)
+    }
+    return str;
+}
+
+function visFn()
+{
+    
+    let calculator = Desmos.GraphingCalculator(vis, {keypad: false});
+    str1 = arrToString(input1_arr)
+    str2 = arrToString(input2_arr)
+    str3 = arrToString(output_arr)
+    console.log(str1,str2,str3)
+    calculator.setExpression({ id: 'g', latex: str1 });
+    calculator.setExpression({ id: 'h', latex: str2 });
+    calculator.setExpression({ id: 'f', latex: str3 });
+}

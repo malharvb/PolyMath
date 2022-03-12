@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/0d2b2a293f.js" crossorigin="anonymous"></script>
     <script src="script0.js" defer></script>
@@ -24,7 +25,7 @@
         <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
         <span><a href="feedback.html" id="feedback">Feedback</a></span>
         
-        <span class="nav" style="position: relative; bottom: 3px; justify-content: flex-end;"><i class="fas fa-calculator"></i></span>
+        <span id="calcAnim"><i class="fas fa-calculator"></i></span>
         <span class="nav1">
             <div>
             <input type="checkbox" class="checkbox" id="checkbox">
@@ -64,41 +65,17 @@
                 <button id="letsCompute">Let's Compute</button>
             </div>  
         
-            <div class="main2">
-                <div>Steps:</div>
-                <div id="steps"></div>
-            </div>
-
+            
             <div class="main3">
                 <div>Visualization:</div>
                 <div id="vis"></div>
             </div>
     
-            <div class="disbuttonsC">
-                <div id="displayC"></div>
-                <div class="buttonsC">
-                    <div class="buttonC">C</div>
-                    <div class="buttonC">/</div>
-                    <div class="buttonC">*</div>
-                    <div class="buttonC">&larr;</div>
-                    <div class="buttonC">7</div>
-                    <div class="buttonC">8</div>
-                    <div class="buttonC">9</div>
-                    <div class="buttonC">-</div>
-                    <div class="buttonC">4</div>
-                    <div class="buttonC">5</div>
-                    <div class="buttonC">6</div>
-                    <div class="buttonC">+</div>
-                    <div class="buttonC">1</div>
-                    <div class="buttonC">2</div>
-                    <div class="buttonC">3</div>
-                    <div class="buttonC">.</div>
-                    <div class="buttonC">(</div>
-                    <div class="buttonC">0</div>
-                    <div class="buttonC">)</div>
-                    <div id="equalC" class="buttonC">=</div>
-                </div>
-            </div>
+            
+        </div>
+        <div class="main2">
+            <div>Steps:</div>
+            <div id="steps"></div>
         </div>
 
      
@@ -106,8 +83,8 @@
 
     <footer>
 
-        <a href="">About Us</a>
-        <a href="mailto:priotosh.mondal777@gmail.com">Contact us</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact us</a>
        
     </footer>
     

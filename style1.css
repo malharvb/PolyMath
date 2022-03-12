@@ -72,27 +72,35 @@ hr{
     border-right: 1px solid blue;
 }
 
-.upper{
+.upper
+{
     display: flex;
     margin-top: 2em;
+    flex-wrap: wrap;
 }
 .main1
 {
-    
     padding: 50px;
-    
 }
 .main2
 {
-    flex: 2;
+    margin: 2em 0;
 }
+.main3
+{
+    flex: 3;
+}
+
 #steps, #vis
 {
     border: 3px solid blue;
-    height: 40vh;
+    height: 50vh;
     padding: 2em
 }
-
+#steps
+{
+    height: 30vh;
+}
 
 
 
@@ -290,7 +298,7 @@ button[type = "submit"]:hover{
 }
 
 .inputss{
-    width: 200px;
+    width: 15em;
     height: 3em;
     margin:10px;
     border: black 1px solid;
@@ -341,4 +349,26 @@ button[type = "submit"]:hover{
     text-align: center;
     vertical-align: middle;
     padding: 10px;
+}
+
+#calcAnim
+{
+    margin-left: auto;
+}
+
+
+.selected_el
+{
+    animation: 10s select;
+}
+
+@keyframes select {
+    from {
+        color: black;
+        background-color: white;
+    }
+    to {
+        color: white;
+        background-color: orange;
+    }
 }
