@@ -119,6 +119,7 @@ button{
 
 button:hover
 {
+    color: cyan;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
@@ -359,16 +360,27 @@ button[type = "submit"]:hover{
 
 .selected_el
 {
-    animation: 10s select;
+    background-color: orange;
+    color: white;
 }
 
-@keyframes select {
-    from {
-        color: black;
-        background-color: white;
-    }
-    to {
-        color: white;
-        background-color: orange;
-    }
+.green
+{
+    background-color: green;
+    color: white;
 }
+
+.red
+{
+    background-color: red;
+    color: white;
+}
+
+#note
+{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: red;
+    font-size: 16px;
+}
+

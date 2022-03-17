@@ -8,6 +8,7 @@ let input1 = document.querySelector('#input1');
 let input2 = document.querySelector('#input2');
 let kbuttons,numbers,op;
 let vis = document.querySelector('#vis')
+let visType = document.querySelectorAll('.visType')
 let opbuttons = document.querySelector('.button-grp')
 let keypad = document.querySelector('.disbuttonsK')
 let main1 = document.querySelector('.main1')
@@ -20,7 +21,7 @@ let input1_arr=[], input2_arr=[], index, output_arr=[];
 let xno;
 let xr;
 
-
+visType.forEach(type => type.disabled = true)
 
 function populateKeypad(kswitch)
 {
@@ -380,11 +381,12 @@ function multiply(A, B)
             prod[i + j] += A[i] * B[j];
             if(A[i] != 0 && B[j] != 0)
             {
-                stepStr += `(${A[i]} * ${B[j]})x<sup>(${m-i-1}+${n-j-1})</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`                
+                stepStr += `(${A[i]} * ${B[j]})x<sup>(${m-i-1}+${n-j-1})</sup>&emsp;+&emsp;`
+                stepsArr.push(`(${A[i]} * ${B[j]})x<sup>(${m-i-1}+${n-j-1})</sup>&emsp;+&emsp;`)               
             }
         }
     }
-    stepStr = stepStr.slice(0,-26)
+    stepStr = stepStr.slice(0,-13)
     return prod;
 }
 
@@ -392,7 +394,7 @@ function multiply(A, B)
 function compute()
 {
     
-    
+    visType.forEach(type => type.disabled = false)
     let calc_arr = [];
     if(input1_arr.length == 0 || input2_arr.length == 0) return;
     stepStr = ''
@@ -508,7 +510,7 @@ function compute()
     }
     else if(operator == '-')
     {
-        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br><br>'
+        stepStr = input1.innerHTML + '&emsp;-&emsp;' + input2.innerHTML + '<br><br>'
         for(let i = 0; i<input1_arr.length; i++)
         {
             let flag = false;
@@ -525,15 +527,18 @@ function compute()
                     
                     if(input1_arr[i].deg > 1)
                     {
-                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`
+                        stepsArr.push(`(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`)
                     }
                     else if(input1_arr[i].deg == 1)
                     {
-                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x&emsp;+&emsp;`
+                        stepsArr.push(`(${input1_arr[i].coeff} - ${input2_arr[j].coeff})x&emsp;+&emsp;`)
                     }
                     else
                     {
-                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                        stepStr += `(${input1_arr[i].coeff} - ${input2_arr[j].coeff})&emsp;+&emsp;`
+                        stepsArr.push(`(${input1_arr[i].coeff} - ${input2_arr[j].coeff})&emsp;+&emsp;`)
                     }
                     flag = true
 
@@ -546,15 +551,18 @@ function compute()
                 output_arr.push(poly_obj)
                 if(input1_arr[i].deg > 1)
                 {
-                    stepStr += `${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`
+                    stepsArr.push(`${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup>&emsp;+&emsp;`)
                 }
                 else if(input1_arr[i].deg == 1)
                 {
-                    stepStr += `${input1_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input1_arr[i].coeff}x&emsp;+&emsp;`
+                    stepsArr.push(`${input1_arr[i].coeff}x&emsp;+&emsp;`)
                 }
                 else
                 {
-                    stepStr += `${input1_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `${input1_arr[i].coeff}&emsp;+&emsp;`
+                    stepsArr.push(`${input1_arr[i].coeff}&emsp;+&emsp;`)
                 }
             }
         }
@@ -581,24 +589,27 @@ function compute()
 
                 if(input2_arr[i].deg > 1)
                 {
-                    stepStr += `-${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `-${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&emsp;+&emsp;`
+                    stepsArr.push(`-${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup>&emsp;+&emsp;`)
                 }
                 else if(input2_arr[i].deg == 1)
                 {
-                    stepStr += `-${input2_arr[i].coeff}x&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `-${input2_arr[i].coeff}x&emsp;+&emsp;`
+                    stepsArr.push(`-${input2_arr[i].coeff}x&emsp;+&emsp;`)
                 }
                 else
                 {
-                    stepStr += `-${input2_arr[i].coeff}&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;`
+                    stepStr += `-${input2_arr[i].coeff}&emsp;+&emsp;`
+                    stepsArr.push(`-${input2_arr[i].coeff}&emsp;+&emsp;`)
                 }
             }
         }
-        stepStr = stepStr.slice(0,-26)
+        stepStr = stepStr.slice(0,-13)
         
     }
     else if(operator == '*')
     {
-        stepStr = input1.innerHTML + '&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;' + input2.innerHTML + '<br><br>'
+        stepStr = input1.innerHTML + '&emsp;*&emsp;' + input2.innerHTML + '<br><br>'
         let a = []
 
         for(let i = input1_arr[0].deg; i >= 0; i--)
@@ -664,7 +675,6 @@ function compute()
     stepStr += '<br><br>'+ans  
     document.querySelector('#result').innerHTML = ans
     document.querySelector('#steps').innerHTML = stepStr
-    visFn()
 
 }
 
@@ -841,15 +851,237 @@ function arrToString(arr)
     return str;
 }
 
-function visFn()
+function time(ms)
 {
-    
-    let calculator = Desmos.GraphingCalculator(vis, {keypad: false});
-    str1 = arrToString(input1_arr)
-    str2 = arrToString(input2_arr)
-    str3 = arrToString(output_arr)
-    console.log(str1,str2,str3)
-    calculator.setExpression({ id: 'g', latex: str1 });
-    calculator.setExpression({ id: 'h', latex: str2 });
-    calculator.setExpression({ id: 'f', latex: str3 });
+    return new Promise( (resolve,reject)=>{
+        setTimeout(resolve,ms)
+    } )
 }
+
+function visFn(e)
+{
+    vis.innerHTML = ''
+    if(e.target.innerHTML == 'Graphical')
+    {
+        let calculator = Desmos.GraphingCalculator(vis, {keypad: false});
+        str1 = arrToString(input1_arr)
+        str2 = arrToString(input2_arr)
+        str3 = arrToString(output_arr)
+        console.log(str1,str2,str3)
+        calculator.setExpression({ id: 'g', latex: str1 });
+        calculator.setExpression({ id: 'h', latex: str2 });
+        calculator.setExpression({ id: 'f', latex: str3 });
+        return
+    }
+    
+    
+    vis.innerHTML = `<div id="vis1"></div>
+            <div id="vis2"></div>
+            <div id="vis3"></div>`
+    if(operator == '*')
+    {
+        for(let i=0; i<input1_arr.length; i++)
+        {
+            document.querySelector('#vis1').innerHTML += `<span id="inp1_${i}">${input1_arr[i].coeff}x<sup>${input1_arr[i].deg}</sup></span>+`
+            if(i+1 != input1_arr.length&&input1_arr[i+1].coeff < 0)
+            {
+                document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+                document.querySelector('#vis1').innerHTML += '-'
+            }      
+        }
+        document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+        
+        document.querySelector('#vis1').innerHTML += `&emsp;*&emsp;`
+        
+        for(let i=0; i<input2_arr.length; i++)
+        {
+            document.querySelector('#vis1').innerHTML += `<span id="inp2_${i}">${input2_arr[i].coeff}x<sup>${input2_arr[i].deg}</sup></span>+`    
+            if(i+1 != input2_arr.length&&input2_arr[i+1].coeff < 0)
+            {
+                document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+                document.querySelector('#vis1').innerHTML += '-'
+            }       
+        }
+        document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+        
+        
+        document.querySelector('#vis2').innerHTML = '<br><br>'
+
+        let i = 0
+        let j = 0
+        async function multLoop1()
+        {
+            for(let k=0; k<input2_arr.length; k++)
+            {
+                document.querySelector(`#inp2_${k}`).className = ''       
+            }
+            document.querySelector(`#inp1_${i}`).classList.add('selected_el')
+            await time(1000)
+            multLoop2()
+            await time(3000*input2_arr.length)
+            
+            i++
+            if(i<input1_arr.length)
+            {
+                j=0;
+                document.querySelector(`#inp1_${i-1}`).classList.remove('selected_el')
+                multLoop1()
+            }
+            else if(i==input1_arr.length)
+            {
+                document.querySelector(`#inp1_${i-1}`).classList.remove('selected_el')
+                document.querySelector('#vis2').innerHTML = document.querySelector('#vis2').innerHTML.slice(0,-3)
+                
+                let ans = opArrToString(output_arr)
+                if(ans.charAt(0) == '+')
+                {
+                    ans = ans.slice(1);
+                }
+                document.querySelector('#vis3').innerHTML = '<br><br>'+ans
+            }
+        }
+        multLoop1();
+        async function multLoop2()
+        {
+            document.querySelector(`#inp2_${j}`).classList.add('selected_el')
+            
+            await time(1000)
+            document.querySelector(`#inp2_${j}`).classList.add('green')
+            document.querySelector(`#inp1_${i}`).classList.add('green')
+            await time(1000)
+            document.querySelector(`#inp1_${i}`).classList.remove('green')
+            document.querySelector(`#inp2_${j}`).className = ''
+            document.querySelector('#vis2').innerHTML += stepsArr.shift()
+            j++
+            if(j<input2_arr.length)
+            {
+                multLoop2()
+            }
+        }
+        return
+    }
+
+    for(let i=0; i<input1_arr.length; i++)
+    {
+        document.querySelector('#vis1').innerHTML += `${input1_arr[i].coeff}<span id="inp1_${i}">x<sup>${input1_arr[i].deg}</sup></span>+`
+        if(i+1 != input1_arr.length&&input1_arr[i+1].coeff < 0)
+        {
+            document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+            document.querySelector('#vis1').innerHTML += '-'
+        }      
+    }
+    document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+    if(operator == '+')
+    {
+        document.querySelector('#vis1').innerHTML += `&emsp;+&emsp;`
+    }
+    else if(operator == '-')
+    {
+        document.querySelector('#vis1').innerHTML += `&emsp;-&emsp;`
+    }
+    for(let i=0; i<input2_arr.length; i++)
+    {
+        document.querySelector('#vis1').innerHTML += `${input2_arr[i].coeff}<span id="inp2_${i}">x<sup>${input2_arr[i].deg}</sup></span>+`    
+        if(i+1 != input2_arr.length&&input2_arr[i+1].coeff < 0)
+        {
+            document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+            document.querySelector('#vis1').innerHTML += '-'
+        }       
+    }
+    document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
+    
+    
+    document.querySelector('#vis2').innerHTML = '<br><br>'
+    
+    let i = 0
+    let j = 0
+    async function loop1()
+    {    
+        for(let k=0; k<input2_arr.length; k++)
+        {
+            document.querySelector(`#inp2_${k}`).className = ''       
+        }
+        document.querySelector(`#inp1_${i}`).classList.add('selected_el')
+        await time(1000)
+        loop2()
+        await time(3000*input2_arr.length)
+        
+    
+        i++
+        if(i <= input1_arr.length)
+        { 
+            j = 0
+            let temp = i-1
+            document.querySelector(`#inp1_${temp}`).className = ''
+            for(let k=0; k<input2_arr.length; k++)
+            {
+                document.querySelector(`#inp2_${k}`).className = ''       
+            }
+            document.querySelector('#vis2').innerHTML += stepsArr.shift()
+            if(i != input1_arr.length)
+            {
+                loop1()
+            }    
+            else if(i == input1_arr.length)
+            {
+                for(let k=0; k<stepsArr.length; k++)
+                {
+                    document.querySelector('#vis2').innerHTML += stepsArr.shift()       
+                }
+                document.querySelector('#vis2').innerHTML = document.querySelector('#vis2').innerHTML.slice(0,-3)
+                await time(2000)
+                let ans = opArrToString(output_arr)
+                if(ans.charAt(0) == '+')
+                {
+                    ans = ans.slice(1);
+                }
+                document.querySelector('#vis3').innerHTML = '<br><br>'+ans
+            }
+        } 
+    }
+    loop1()
+    
+    
+
+    async function loop2()
+    {
+
+        document.querySelector(`#inp2_${j}`).classList.add('selected_el')
+        await time(2000)
+        j++
+        let temp = j-1
+        if(input2_arr[temp].deg == input1_arr[i].deg)
+        {
+            document.querySelector(`#inp2_${temp}`).classList.remove('selected_el')
+            document.querySelector(`#inp1_${i}`).classList.remove('selected_el')
+            document.querySelector(`#inp2_${temp}`).classList.add('green')
+            document.querySelector(`#inp1_${i}`).classList.add('green')
+    
+        }
+        else if(j < input2_arr.length)
+        {
+            
+            document.querySelector(`#inp1_${i}`).classList.add('red')
+            document.querySelector(`#inp2_${temp}`).classList.add('red')
+            await time(1000)
+            document.querySelector(`#inp2_${temp}`).className = ''
+            document.querySelector(`#inp1_${i}`).className = ''
+            document.querySelector(`#inp1_${i}`).classList.add('selected_el')
+            loop2()
+        } 
+        else if(j == input2_arr.length)
+        {
+            document.querySelector(`#inp1_${i}`).classList.add('red')
+            document.querySelector(`#inp2_${temp}`).classList.add('red')
+            await time(1000)
+            document.querySelector(`#inp2_${temp}`).className = ''
+            document.querySelector(`#inp1_${i}`).className = ''
+            document.querySelector(`#inp1_${i}`).classList.add('green')
+        }
+    }
+
+    
+}
+
+
+visType.forEach(type => type.addEventListener('click',visFn))
