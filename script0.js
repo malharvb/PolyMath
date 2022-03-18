@@ -1,8 +1,8 @@
 let myStore = window.localStorage;
 let letsCompute = document.querySelector('#letsCompute');
+let newVis = document.querySelector('#new');
 let operator = '+'
 let operators = document.querySelectorAll('.operator');
-let letsCompLink = document.querySelector('#letsCompLink');
 let input = document.querySelectorAll('.inputss');
 let input1 = document.querySelector('#input1');
 let input2 = document.querySelector('#input2');
@@ -393,7 +393,7 @@ function multiply(A, B)
 
 function compute()
 {
-    
+    letsCompute.disabled = true
     visType.forEach(type => type.disabled = false)
     let calc_arr = [];
     if(input1_arr.length == 0 || input2_arr.length == 0) return;
@@ -874,7 +874,7 @@ function visFn(e)
         return
     }
     
-    
+    let stepsArrDup = [...stepsArr]
     vis.innerHTML = `<div id="vis1"></div>
             <div id="vis2"></div>
             <div id="vis3"></div>`
@@ -951,7 +951,7 @@ function visFn(e)
             await time(1000)
             document.querySelector(`#inp1_${i}`).classList.remove('green')
             document.querySelector(`#inp2_${j}`).className = ''
-            document.querySelector('#vis2').innerHTML += stepsArr.shift()
+            document.querySelector('#vis2').innerHTML += stepsArrDup.shift()
             j++
             if(j<input2_arr.length)
             {
@@ -1004,7 +1004,7 @@ function visFn(e)
         document.querySelector(`#inp1_${i}`).classList.add('selected_el')
         await time(1000)
         loop2()
-        await time(3000*input2_arr.length)
+        await time(input1_arr.length*input2_arr.length*1500)
         
     
         i++
@@ -1017,16 +1017,16 @@ function visFn(e)
             {
                 document.querySelector(`#inp2_${k}`).className = ''       
             }
-            document.querySelector('#vis2').innerHTML += stepsArr.shift()
+            document.querySelector('#vis2').innerHTML += stepsArrDup.shift()
             if(i != input1_arr.length)
             {
                 loop1()
             }    
             else if(i == input1_arr.length)
             {
-                for(let k=0; k<stepsArr.length; k++)
+                for(let k=0; k<stepsArrDup.length; k++)
                 {
-                    document.querySelector('#vis2').innerHTML += stepsArr.shift()       
+                    document.querySelector('#vis2').innerHTML += stepsArrDup.shift()       
                 }
                 document.querySelector('#vis2').innerHTML = document.querySelector('#vis2').innerHTML.slice(0,-3)
                 await time(2000)
@@ -1053,10 +1053,10 @@ function visFn(e)
         if(input2_arr[temp].deg == input1_arr[i].deg)
         {
             document.querySelector(`#inp2_${temp}`).classList.remove('selected_el')
-            document.querySelector(`#inp1_${i}`).classList.remove('selected_el')
+            document.querySelector(`#inp1_${i}`).className = ''
             document.querySelector(`#inp2_${temp}`).classList.add('green')
             document.querySelector(`#inp1_${i}`).classList.add('green')
-    
+            document.querySelector(`#inp1_${i}`).classList.add('selected_el')
         }
         else if(j < input2_arr.length)
         {
@@ -1077,6 +1077,7 @@ function visFn(e)
             document.querySelector(`#inp2_${temp}`).className = ''
             document.querySelector(`#inp1_${i}`).className = ''
             document.querySelector(`#inp1_${i}`).classList.add('green')
+
         }
     }
 
@@ -1085,3 +1086,20 @@ function visFn(e)
 
 
 visType.forEach(type => type.addEventListener('click',visFn))
+newVis.addEventListener('click', clearAll)
+
+function clearAll()
+{
+    input1.innerHTML = ''
+    input2.innerHTML = ''
+    document.querySelector('#result').innerHTML = ''
+    document.querySelector('#steps').innerHTML = ''
+    stepStr = ''
+    stepsArr = []
+    visType.forEach(type => type.disabled = true)
+    input1_arr = []
+    input2_arr = []
+    output_arr=[];
+    vis.innerHTML = ''
+    letsCompute.disabled = false
+}
