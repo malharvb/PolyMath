@@ -1,15 +1,14 @@
 .disbuttonsK {
-    width: 300px;
-    height: 20px;
+    height: 5em;
     justify-content: center;
     display: relative;
-
 }
 
 .buttonsK {
     display: grid;
     border-left: 1px solid#999;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 6em;
     color: black;
     background: white;
 }
@@ -21,9 +20,9 @@
 
 .buttonK {
     border: 0.5px solid #999;
-    line-height: 5px;
+    border-radius: 0;
     text-align: center;
-    font-size: 15px;
+    font-size: 14px;
     cursor: pointer;
     background-color: rgb(46, 67, 182);
 }

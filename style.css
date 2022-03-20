@@ -11,7 +11,7 @@
     display: flex;
     gap: 2em;
     padding: 1em 1em 1em 3em;
-    background-color: rgb(26, 26, 252);
+    background-color: #003049;
     color: white;
 }
 
@@ -47,7 +47,7 @@ footer
     display: flex;
     gap: 2em;
     padding: 1em 1em 1em 3em;
-    background-color: rgb(26, 26, 252);
+    background-color: #003049;
     color: white;
 }
 

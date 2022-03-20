@@ -13,7 +13,7 @@
     gap: 4em;
     padding: 1em 1em 1em 3em;
     flex-direction: row;
-    background-color: rgb(26, 26, 252);
+    background-color: #003049;
     color: white;
     flex: 1;
     justify-content: space-evenly;
@@ -33,7 +33,7 @@ a{
     text-decoration: none;
 }
  a:hover{
-    color: chartreuse;
+    color: #ffb703;
     text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ header
     padding-left: 5em;
     display: flex;
     align-items: center;
-    color: rgb(26, 26, 252);
+    color: #003049;
 }
 body{
     min-height: 100vh;
@@ -93,7 +93,9 @@ hr{
 
 #steps, #vis
 {
-    border: 3px solid blue;
+    border: 3px solid #003049;
+    background-color: #00509d;
+    color: white;
     height: 50vh;
     padding: 2em
 }
@@ -102,10 +104,14 @@ hr{
     height: 30vh;
 }
 
+.heading
+{
+    color: #f77f00;
+}
 
-
-button{
-    background-color: rgb(26, 26, 252);
+button
+{
+    background-color: #00509d;
     border: none;
     color: white;
     padding: 10px 27px;
@@ -113,7 +119,7 @@ button{
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-    
+    border-radius: .5em;
     cursor: pointer;
 }
 
@@ -124,12 +130,10 @@ button:hover
 }
 
 
-
-
 .inputcolor{
-    background-color: rgb(26, 26, 252);
+    background-color: #00509d;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
-    color: azure;
     font-size: 16px;
     border-radius: 5px;
     margin: 0;
@@ -147,7 +151,7 @@ footer
     display: flex;
     gap: 2em;
     padding: 1em 1em 1em 3em;
-    background-color: rgb(26, 26, 252);
+    background-color: #003049;
     color: white;
 } 
 
@@ -187,25 +191,6 @@ footer
     gap: 10em;
     z-index: 1;
 
-}
-
-.circle 
-{
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    padding: 2px;
-    background: rgb(26, 26, 252);
-    border: 1px solid rgb(26, 26, 252);
-    color: white;
-    text-align: center;
-    font: 13px Arial, sans-serif;
-}
-
-#cc
-{
-    background: rgb(33, 129, 255);
-    border: 1px solid cyan;
 }
 
 span.inputcolor
@@ -305,7 +290,6 @@ button[type = "submit"]:hover{
     border: black 1px solid;
     border-radius: 5px;
     padding: 2px;
-    
     color: black;
     font-size: 18px;
 
@@ -381,6 +365,6 @@ button[type = "submit"]:hover{
     font-family: 'Roboto', sans-serif;
     text-align: center;
     color: red;
-    font-size: 16px;
+    font-size: 18px;
 }
 
