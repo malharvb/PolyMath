@@ -9,6 +9,12 @@
     <script src="https://kit.fontawesome.com/0d2b2a293f.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
     <title>Feedback</title>
+    <style>
+        .nav1
+        {
+            margin-left: auto;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,7 +25,7 @@
     <span><a href="index.html" id="home">Home</a></span>
     <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
     <span><a href="feedback.html" id="feedback">Feedback</a></span>
-    <span class="nav" style="position: relative; bottom: 3px; justify-content: flex-end; opacity: 0;"><i class="fas fa-calculator"></i></span>
+    
     <span class="nav1">
         <div>
         <input type="checkbox" class="checkbox" id="checkbox">
@@ -28,7 +34,7 @@
             <i class="fas fa-sun"></i>
             <div class="ball"></div>
         </label>
-    </div>
+        </div>
     </span>
     </span>
     
@@ -36,15 +42,15 @@
 <main>
     <div class="mainform">
     <p style="padding-left: 5vh; justify-content: left; color: orange; text-decoration: underline;">Feedback Form</p>
-<form style="padding-left: 5vh;" action="Feedback" class="form">
-    <p>Name: <input type="text" name="name" id="nom"></p>
-    <p>Email: <input type="email" name="email" id="email"></p>
-    <p style=" display: flex; justify-content: bottom;">Enter Suggestion/Feedback:</p>
-    <textarea name="response" id="response"  cols="100"  rows="5" ></textarea>
-   
-    <button style="display: flex; justify-content: left;" type="submit">Submit Response</button>
-</form>
-</div>
+    <form style="padding-left: 5vh;" action="Feedback" class="form">
+        <p>Name: <input type="text" name="name" id="nom"></p>
+        <p>Email: <input type="email" name="email" id="email"></p>
+        <p style=" display: flex; justify-content: bottom;">Enter Suggestion/Feedback:</p>
+        <textarea name="response" id="response"  cols="100"  rows="5" ></textarea>
+    
+        <button style="display: flex; justify-content: left;" type="submit">Submit Response</button>
+    </form>
+    </div>
 </main>
 <footer>
 

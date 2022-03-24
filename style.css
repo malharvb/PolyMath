@@ -96,6 +96,10 @@ body.dark {
     background-color: #292c35;
 }
 
+span.dark {
+    color: white;
+}
+
 .fa-moon {
     color: #f1c40f;
 }

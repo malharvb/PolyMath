@@ -198,9 +198,18 @@ span.inputcolor
     margin-right: 1em;
 }
 
-.dark 
+div.dark 
 {
     background-color: #292c35;
+    color: white;
+    border: 1px solid white
+}
+
+span.dark 
+{
+    
+    color: white;
+    
 }
 
 *{

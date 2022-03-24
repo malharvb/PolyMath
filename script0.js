@@ -860,10 +860,11 @@ function time(ms)
 
 function visFn(e)
 {
+    let sel = false
     vis.innerHTML = ''
     if(e.target.innerHTML == 'Graphical')
     {
-        let calculator = Desmos.GraphingCalculator(vis, {keypad: false});
+        let calculator = Desmos.GraphingCalculator(vis, {keypad: false, expressionsTopbar: false});
         str1 = arrToString(input1_arr)
         str2 = arrToString(input2_arr)
         str3 = arrToString(output_arr)
@@ -997,6 +998,7 @@ function visFn(e)
     let j = 0
     async function loop1()
     {    
+        sel = false
         for(let k=0; k<input2_arr.length; k++)
         {
             document.querySelector(`#inp2_${k}`).className = ''       
@@ -1004,7 +1006,14 @@ function visFn(e)
         document.querySelector(`#inp1_${i}`).classList.add('selected_el')
         await time(1000)
         loop2()
-        await time(input1_arr.length*input2_arr.length*1500)
+        while (true)
+        {
+            await time(3000)
+            if(sel)
+            {
+                break;
+            }
+        }
         
     
         i++
@@ -1057,6 +1066,7 @@ function visFn(e)
             document.querySelector(`#inp2_${temp}`).classList.add('green')
             document.querySelector(`#inp1_${i}`).classList.add('green')
             document.querySelector(`#inp1_${i}`).classList.add('selected_el')
+            sel = true
         }
         else if(j < input2_arr.length)
         {
@@ -1077,6 +1087,7 @@ function visFn(e)
             document.querySelector(`#inp2_${temp}`).className = ''
             document.querySelector(`#inp1_${i}`).className = ''
             document.querySelector(`#inp1_${i}`).classList.add('green')
+            sel = true
 
         }
     }
