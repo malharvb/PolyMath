@@ -887,7 +887,7 @@ function visFn(e)
             if(i+1 != input1_arr.length&&input1_arr[i+1].coeff < 0)
             {
                 document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
-                document.querySelector('#vis1').innerHTML += '-'
+                
             }      
         }
         document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
@@ -900,7 +900,7 @@ function visFn(e)
             if(i+1 != input2_arr.length&&input2_arr[i+1].coeff < 0)
             {
                 document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
-                document.querySelector('#vis1').innerHTML += '-'
+                
             }       
         }
         document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
@@ -968,7 +968,7 @@ function visFn(e)
         if(i+1 != input1_arr.length&&input1_arr[i+1].coeff < 0)
         {
             document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
-            document.querySelector('#vis1').innerHTML += '-'
+            
         }      
     }
     document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
@@ -986,7 +986,7 @@ function visFn(e)
         if(i+1 != input2_arr.length&&input2_arr[i+1].coeff < 0)
         {
             document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
-            document.querySelector('#vis1').innerHTML += '-'
+            
         }       
     }
     document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)

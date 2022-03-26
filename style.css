@@ -17,6 +17,7 @@
 
 #header-text
 {
+    font-family: 'Patrick Hand', cursive;
     font-size: 30px;
     margin: 4px 4px;
 }
@@ -24,10 +25,11 @@
 header
 {
     margin: .5em;
-    padding-left: 5em;
+    gap: 1em;
+    justify-content: center;
     display: flex;
     align-items: center;
-    color: rgb(26, 26, 252);
+    color: #003049;
 }
 
 .main1 .inputst{
