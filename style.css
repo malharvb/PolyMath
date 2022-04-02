@@ -225,3 +225,8 @@ nav
         margin-left: 0;
     }
 }
+
+textarea
+{
+    width: 70%;
+}
