@@ -2,7 +2,9 @@
 (() => {
 
 let hamburger = document.querySelector('.hamburger');
-
+let i = document.createElement('i');
+i.classList.add('fas');
+i.classList.add('fa-bars');
 let mobileNav = document.querySelector('.mobile-view');
 
 
@@ -18,7 +20,8 @@ function addMobileNav()
     }
     else
     {
-        hamburger.textContent = '☰';
+        hamburger.textContent = '';
+        hamburger.appendChild(i);
         mobileNav.style.cssText = "display: none;"
         flag = true;
     }

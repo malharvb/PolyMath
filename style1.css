@@ -386,7 +386,6 @@ nav
     justify-content: space-evenly;
 }
 
-
 .mobile-view
 {
     display: none;
@@ -401,6 +400,7 @@ nav
 
 @media (max-width: 480px)
 {
+    
     .main1
     {
         padding: 1rem;
