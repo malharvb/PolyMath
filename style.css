@@ -137,3 +137,92 @@ span.dark {
 .fa-calculator{
     color: white;
 }
+
+.nav1
+{
+    margin-left: auto;
+}
+
+nav
+{
+    display: flex;
+    gap: 4em;
+    background-color: #003049;
+    padding: 1em 3em;  
+}
+
+.desktop-view
+{
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    color: white;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+
+.mobile-view
+{
+    display: none;
+}
+
+.hamburger
+{
+    margin-left: auto;
+    display: none;
+    color: white;
+}
+
+@media (max-width: 480px)
+{
+    .main1
+    {
+        padding: 1rem;
+    }
+    .hamburger
+    {
+        display: block;
+    }
+    .desktop-view
+    {
+        display: none;
+    }
+    nav
+    {
+        display: block;
+        padding: 1em;
+    }
+    .mobile-view
+    {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 15px;
+        align-items: center;
+    }
+    .flex-con
+    {
+        flex-wrap: wrap;
+        gap: 1rem
+    }
+    .main1,.main2,.main3
+    {
+        border: 0;
+    }
+    #steps, #vis
+    {
+        padding: 0;
+    }
+    #steps
+    {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding: 1rem;
+    }
+    .nav1
+    {
+        margin-left: 0;
+    }
+}

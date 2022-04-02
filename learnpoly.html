@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <link rel="shortcut icon" href="PolyLogo.svg" type="image/x-icon">
+    <script src="navScript.js" defer></script>
     <style>
 
         ul li {
@@ -50,9 +51,7 @@
             flex: 1;
         }
 
-        .nav1{
-            justify-content: right;
-        }
+        
 
         div.dark 
         {
@@ -73,25 +72,42 @@
 </head>
 <body>
     <header> <img src="PolyLogo.svg" alt="logo"> <span id="header-text">Poly Math</span></header>
-    <div>
-        <span class="nav">
-        <span><a href="index.html" id="home">Home</a></span>
-        <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
-        <span><a href="feedback.html" id="feedback">Feedback</a></span>
-        <span class="nav" style="opacity: 0; position: relative; bottom: 13px; justify-content: flex-end;"><i class="fas fa-calculator"></i></span>
-        <span class="nav1">
-            <div>
-            <input type="checkbox" class="checkbox" id="checkbox">
-            <label for="checkbox" class="label">
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-                <div class="ball"></div>
-            </label>
+    <nav>
+        <div class="desktop-view">
+            <span><a href="index.html" id="home">Home</a></span>
+            <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
+            <span><a href="feedback.html" id="feedback">Feedback</a></span>
+            
+
+            <span class="nav1">
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="ball"></div>
+                    </label>
+                </div>
+            </span>
         </div>
-        </span>
-        </span>
-        
-    </div>
+        <div class="hamburger">&#9776;</div>
+        <div class="mobile-view">
+            <span><a href="index.html" id="home">Home</a></span>
+            <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
+            <span><a href="feedback.html" id="feedback">Feedback</a></span>
+            
+            <span class="nav1">
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="ball"></div>
+                    </label>
+                </div>
+            </span>
+        </div>
+    </nav>
     <br />
     <div style="font-size: 30px; text-indent: 30px; color: orange;" ><u>Polynomial Concepts: Topic-wise list</u></div>
     <br>

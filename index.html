@@ -17,31 +17,52 @@
     <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/0d2b2a293f.js" crossorigin="anonymous"></script>
     <script src="script0.js" defer></script>
+    <script src="navScript.js" defer></script>
     <link rel="shortcut icon" href="PolyLogo.svg" type="image/x-icon">
     <title>Polynomial Visualizer</title>
 </head>
 <body id="workspace0">
     <header> <img src="PolyLogo.svg" alt="logo"> <span id="header-text">Poly Math</span></header>
-    <div>
-        <span class="nav">
-        <span><a href="index.html" id="home">Home</a></span>
-        <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
-        <span><a href="feedback.html" id="feedback">Feedback</a></span>
-        
-        <span id="calcAnim"><i class="fas fa-calculator"></i></span>
-        <span class="nav1">
-            <div>
-            <input type="checkbox" class="checkbox" id="checkbox">
-            <label for="checkbox" class="label">
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-                <div class="ball"></div>
-            </label>
+   
+    <nav>
+        <div class="desktop-view">
+            <span><a href="index.html" id="home">Home</a></span>
+            <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
+            <span><a href="feedback.html" id="feedback">Feedback</a></span>
+            
+            <span id="calcAnim"><i class="fas fa-calculator"></i></span>
+            <span class="nav1">
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="ball"></div>
+                    </label>
+                </div>
+            </span>
         </div>
-        </span>
-        </span>
+        <div class="hamburger">&#9776;</div>
+        <div class="mobile-view">
+            <span><a href="index.html" id="home">Home</a></span>
+            <span><a href="learnpoly.html" id="learnpoly">Learn Polynomials</a></span>
+            <span><a href="feedback.html" id="feedback">Feedback</a></span>
+            
+            <span id="calcAnim"><i class="fas fa-calculator"></i></span>
+            <span class="nav1">
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="ball"></div>
+                    </label>
+                </div>
+            </span>
+        </div>
+    </nav>
         
-    </div>
+    
    
     <main>
         <div class="upper">
@@ -75,7 +96,7 @@
             
             <div class="main3">
                 <div class="heading">Visualization:</div>
-                <div>
+                <div class="flex-con">
                     <button class="visType">Animations</button>
                     <button class="visType">Graphical</button>
                 </div>
