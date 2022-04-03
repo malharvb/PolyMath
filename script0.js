@@ -393,10 +393,11 @@ function multiply(A, B)
 
 function compute()
 {
+    
+    if(input1_arr.length == 0 || input2_arr.length == 0) return;
     letsCompute.disabled = true
     visType.forEach(type => type.disabled = false)
     let calc_arr = [];
-    if(input1_arr.length == 0 || input2_arr.length == 0) return;
     stepStr = ''
     //sort the input arrays
     
