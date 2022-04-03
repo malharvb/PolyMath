@@ -1036,7 +1036,7 @@ function visFn(e)
             {
                 for(let k=0; k<stepsArrDup.length; k++)
                 {
-                    document.querySelector('#vis2').innerHTML += stepsArrDup.shift()       
+                    document.querySelector('#vis2').innerHTML += stepsArrDup[k];      
                 }
                 document.querySelector('#vis2').innerHTML = document.querySelector('#vis2').innerHTML.slice(0,-3)
                 await time(2000)
