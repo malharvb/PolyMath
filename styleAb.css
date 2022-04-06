@@ -128,7 +128,7 @@ header
 p
 {
     text-justify:inter-word;
-    margin: 3 rem;
+    margin: 3rem 0;
 }
 
 nav a:active,nav a:checked,nav a:visited
@@ -167,7 +167,7 @@ ul a, p a
 
 ul a:hover
 {
-    background: linear-gradient(to left, purple,yellow);
+    background: chartreuse;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 5px black ;
