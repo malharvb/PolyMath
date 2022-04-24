@@ -1,0 +1,23 @@
+.quadContent
+{
+    width: 200px;
+    height: 200px;
+}
+
+.quadHeader
+{
+    font-size: 1rem;
+    color: #f77f00;
+    margin: 10px;
+}
+
+.quadInput
+{
+    width: 40px;
+}
+
+.quadCalcBtn
+{
+    font-size: .75rem;
+    margin: 10px;
+}
