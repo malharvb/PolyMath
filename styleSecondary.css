@@ -72,7 +72,7 @@ body{
     background-color: #fff;
 }
 
-.dark p, .dark a
+.dark p, .dark a, .dark a:visited
 {
     color: white;
 }

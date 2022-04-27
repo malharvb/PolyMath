@@ -11,9 +11,17 @@
     margin: 10px;
 }
 
+.quadRoots
+{
+    background-color: #00509d;
+    margin: 10px;
+    color: white;
+}
+
 .quadInput
 {
     width: 40px;
+
 }
 
 .quadCalcBtn

@@ -1,3 +1,3 @@
 # SE-mini-project
 
-[Live-Demo :point_left:](https://malharvb.github.io/PolyMath/)
+[Live-Demo :point_left:](https://malharvb.github.io/SE-mini-project/)

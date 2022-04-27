@@ -768,7 +768,7 @@ calcWrapper.innerHTML = `<div id="displayC"></div>
 
 let quadWrapper = document.createElement('div')
 quadWrapper.classList.add('quadContent')
-quadWrapper.innerHTML = `<div class="quadHeader">Root Calculator</div>
+quadWrapper.innerHTML = `<div class="quadHeader">Root Calculator: </div>
                     <input type="number" class="quadInput" id="quad1" value=0> <label>x<sup>2</sup>+</label>
                     <input type="number" class="quadInput" id="quad2" value=0> <label>x+</label>
                     <input type="number" class="quadInput" id="quad3" value=0>
@@ -828,12 +828,17 @@ function quadCalc()
     let b = Number(document.querySelector('#quad2').value)
     let c = Number(document.querySelector('#quad3').value)
     let roots = document.createElement('div')
-    if(a == 0) return;
-    console.log(quadWrapper.childNodes.length)
     if (quadWrapper.childNodes.length > 13) 
     {
         quadWrapper.removeChild(quadWrapper.lastChild)
     }
+    roots.classList.add('quadRoots')
+    if(a == 0) 
+    {
+        return;
+    }
+    console.log(quadWrapper.childNodes.length)
+    
     let discriminant = b * b - 4 * a * c;
 
     // condition for real and different roots
@@ -939,8 +944,12 @@ function visFn(e)
     }
     
     let stepsArrDup = [...stepsArr]
-    vis.innerHTML = `<div id="vis1"></div>
+    vis.innerHTML = `
+            <div id="desp1"></div>
+            <div id="vis1"></div>
+            <div id="desp2"></div>
             <div id="vis2"></div>
+            <div id="desp3"></div>
             <div id="vis3"></div>`
     if(operator == '*')
     {
@@ -969,12 +978,13 @@ function visFn(e)
         document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
         
         
-        document.querySelector('#vis2').innerHTML = '<br><br>'
-
+        document.querySelector('#vis2').innerHTML = '<br>'
+        document.querySelector('#desp1').innerHTML = 'Multiplying every term of both polynomials with each other: <br><br>'
         let i = 0
         let j = 0
         async function multLoop1()
         {
+            
             for(let k=0; k<input2_arr.length; k++)
             {
                 document.querySelector(`#inp2_${k}`).className = ''       
@@ -1001,12 +1011,14 @@ function visFn(e)
                 {
                     ans = ans.slice(1);
                 }
-                document.querySelector('#vis3').innerHTML = '<br><br>'+ans
+                document.querySelector('#desp3').innerHTML = '<br><br>Final Result'
+                document.querySelector('#vis3').innerHTML = '<br>'+ans
             }
         }
         multLoop1();
         async function multLoop2()
         {
+            document.querySelector('#desp2').innerHTML = '<br><br>Simplifying: '
             document.querySelector(`#inp2_${j}`).classList.add('selected_el')
             
             await time(1000)
@@ -1055,7 +1067,8 @@ function visFn(e)
     document.querySelector('#vis1').innerHTML = document.querySelector('#vis1').innerHTML.slice(0,-1)
     
     
-    document.querySelector('#vis2').innerHTML = '<br><br>'
+    document.querySelector('#vis2').innerHTML = '<br>'
+    document.querySelector('#desp1').innerHTML = 'Comparing the degree of the polynomial terms: <br><br>'
     
     let i = 0
     let j = 0
@@ -1107,7 +1120,8 @@ function visFn(e)
                 {
                     ans = ans.slice(1);
                 }
-                document.querySelector('#vis3').innerHTML = '<br><br>'+ans
+                document.querySelector('#desp3').innerHTML = '<br><br>Final Result: '
+                document.querySelector('#vis3').innerHTML = '<br>'+ans
             }
         } 
     }
@@ -1121,6 +1135,7 @@ function visFn(e)
         document.querySelector(`#inp2_${j}`).classList.add('selected_el')
         await time(2000)
         j++
+        document.querySelector('#desp2').innerHTML = '<br><br>Simplifying: '
         let temp = j-1
         if(input2_arr[temp].deg == input1_arr[i].deg)
         {
