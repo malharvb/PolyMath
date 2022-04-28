@@ -21,7 +21,7 @@ a{
     color: azure;
     text-decoration: none;
 }
- a:hover{
+a:hover{
     color: #ffb703;
     text-decoration: none;
 }
@@ -67,7 +67,6 @@ hr{
 {
     display: flex;
     margin-top: 2em;
-    flex-wrap: wrap;
 }
 .main1
 {
@@ -88,7 +87,8 @@ hr{
     background-color: #00509d;
     color: white;
     height: 50vh;
-    padding: 2em
+    padding: 2em;
+    overflow-y: auto;
 }
 #steps
 {
@@ -405,10 +405,20 @@ nav
 
 @media (max-width: 480px)
 {
-    
+    .upper
+    {
+        flex-wrap: wrap;;
+    }
     .main1
     {
         padding: 1rem;
+    }
+    .main4
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2rem;
     }
     .hamburger
     {

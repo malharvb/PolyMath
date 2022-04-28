@@ -77,6 +77,11 @@ body{
     color: white;
 }
 
+.dark a:hover
+{
+    color: chartreuse;
+}
+
 .label {
     background-color: black;
     display:flex;

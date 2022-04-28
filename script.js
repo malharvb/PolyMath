@@ -18,6 +18,7 @@ let keypadWrapper = document.createElement('div')
 let current_in,curr_arr=[],num_count=0;
 let stepStr,stepsArr=[];
 let calcBtn = document.querySelector('#calcAnim');
+let calcBtn2 = document.querySelector('#calcAnim2');
 let input1_arr=[], input2_arr=[], index, output_arr=[];
 let xno;
 let xr;
@@ -772,7 +773,7 @@ quadWrapper.innerHTML = `<div class="quadHeader">Root Calculator: </div>
                     <input type="number" class="quadInput" id="quad1" value=0> <label>x<sup>2</sup>+</label>
                     <input type="number" class="quadInput" id="quad2" value=0> <label>x+</label>
                     <input type="number" class="quadInput" id="quad3" value=0>
-                    <button class="quadCalcBtn">Calculate</button>`
+                    <div><button class="quadCalcBtn">Calculate</button></div>`
 
 
 
@@ -874,6 +875,7 @@ function quadCalc()
 }
 
 calcBtn.addEventListener('click', calcDispFn)
+calcBtn2.addEventListener('click', calcDispFn)
 
 
 
@@ -1011,14 +1013,14 @@ function visFn(e)
                 {
                     ans = ans.slice(1);
                 }
-                document.querySelector('#desp3').innerHTML = '<br><br>Final Result'
+                document.querySelector('#desp3').innerHTML = '<br>Final Result'
                 document.querySelector('#vis3').innerHTML = '<br>'+ans
             }
         }
         multLoop1();
         async function multLoop2()
         {
-            document.querySelector('#desp2').innerHTML = '<br><br>Simplifying: '
+            document.querySelector('#desp2').innerHTML = '<br>Simplifying: '
             document.querySelector(`#inp2_${j}`).classList.add('selected_el')
             
             await time(1000)
@@ -1120,7 +1122,7 @@ function visFn(e)
                 {
                     ans = ans.slice(1);
                 }
-                document.querySelector('#desp3').innerHTML = '<br><br>Final Result: '
+                document.querySelector('#desp3').innerHTML = '<br>Final Result: '
                 document.querySelector('#vis3').innerHTML = '<br>'+ans
             }
         } 
@@ -1135,7 +1137,7 @@ function visFn(e)
         document.querySelector(`#inp2_${j}`).classList.add('selected_el')
         await time(2000)
         j++
-        document.querySelector('#desp2').innerHTML = '<br><br>Simplifying: '
+        document.querySelector('#desp2').innerHTML = '<br>Simplifying: '
         let temp = j-1
         if(input2_arr[temp].deg == input1_arr[i].deg)
         {
