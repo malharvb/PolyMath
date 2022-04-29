@@ -934,14 +934,14 @@ function visFn(e)
     if(e.target.innerHTML == 'Graphical')
     {
 
-        let calculator = Desmos.GraphingCalculator(vis, {keypad: false, expressionsTopbar: false, expressionsCollapsed: true});
+        let calculator = Desmos.GraphingCalculator(vis, {keypad: false, expressionsTopbar: false, expressions: false});
         str1 = arrToString(input1_arr)
         str2 = arrToString(input2_arr)
         str3 = arrToString(output_arr)
         console.log(str1,str2,str3)
-        calculator.setExpression({ id: 'g', latex: str1 });
-        calculator.setExpression({ id: 'h', latex: str2 });
-        calculator.setExpression({ id: 'f', latex: str3 });
+        calculator.setExpression({ id: 'g', latex: str1, color: Desmos.Colors.ORANGE});
+        calculator.setExpression({ id: 'h', latex: str2, color: Desmos.Colors.GREEN});
+        calculator.setExpression({ id: 'f', latex: str3, color: '#ff007f'});
         return
     }
     

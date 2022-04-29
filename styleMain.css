@@ -97,7 +97,7 @@ hr{
 
 .heading
 {
-    color: #f77f00;
+    color: #FF4500;
 }
 
 button
@@ -307,11 +307,13 @@ button[type = "submit"]:hover{
 
 #input1
 {
+    color: #fa7e19;
     padding: 2%;
 }
 
 #input2
 {
+    color: #388c46;
     padding: 2%;
 }
 
