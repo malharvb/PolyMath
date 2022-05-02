@@ -91,6 +91,10 @@ hr{
     overflow-y: auto;
 }
 
+#steps
+{
+    height: 30vh;
+}
 
 .heading
 {
