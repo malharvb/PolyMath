@@ -86,14 +86,11 @@ hr{
     border: 3px solid #003049;
     background-color: #00509d;
     color: white;
-    height: 50vh;
+    height: inherit;
     padding: 2em;
     overflow-y: auto;
 }
-#steps
-{
-    height: 30vh;
-}
+
 
 .heading
 {
