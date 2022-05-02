@@ -86,7 +86,7 @@ hr{
     border: 3px solid #003049;
     background-color: #00509d;
     color: white;
-    height: inherit;
+    height: 100vh;
     padding: 2em;
     overflow-y: auto;
 }
